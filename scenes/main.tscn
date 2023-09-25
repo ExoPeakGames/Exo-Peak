@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckwjmromto562"]
+[gd_scene load_steps=5 format=3 uid="uid://ckwjmromto562"]
 
 [ext_resource type="Script" path="res://scripts/blackscreen.gd" id="1_o3lcj"]
 [ext_resource type="Script" path="res://scripts/ScaleViewport.gd" id="2_0hsiq"]
+[ext_resource type="PackedScene" uid="uid://wctwydaslxgf" path="res://scenes/title_screen.tscn" id="3_24fkh"]
 [ext_resource type="PackedScene" uid="uid://if6ah067nd5p" path="res://scenes/scene_1.tscn" id="3_jt8kn"]
 
 [node name="Main" type="Node2D"]
@@ -30,5 +31,7 @@ size = Vector2i(208, 120)
 render_target_update_mode = 4
 
 [node name="SceneManager" type="Node2D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Title_Screen" parent="SubViewportContainer/SubViewport/SceneManager" instance=ExtResource("3_24fkh")]
 
 [node name="Scene1" parent="SubViewportContainer/SubViewport/SceneManager" instance=ExtResource("3_jt8kn")]
