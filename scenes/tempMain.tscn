@@ -70,6 +70,7 @@ color = Color(0, 0, 0, 0.956863)
 metadata/_edit_lock_ = true
 
 [node name="settingsButton" type="TextureButton" parent="PauseLayer/Pause"]
+layout_mode = 0
 offset_left = 347.0
 offset_top = 207.0
 offset_right = 537.0
@@ -91,6 +92,7 @@ text = "Settings"
 metadata/_edit_lock_ = true
 
 [node name="achievementsButton" type="TextureButton" parent="PauseLayer/Pause"]
+layout_mode = 0
 offset_left = 349.0
 offset_top = 283.0
 offset_right = 539.0
@@ -111,7 +113,7 @@ theme_override_font_sizes/font_size = 20
 text = "Achievements"
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="Background/BackGround/returnButton" to="Background/BackGround/returnButton" method="_on_playButton_pressed"]
 [connection signal="pressed" from="Background/BackGround/returnButton" to="Background/BackGround/returnButton" method="_on_pressed"]
+[connection signal="pressed" from="Background/BackGround/returnButton" to="Background/BackGround/returnButton" method="_on_playButton_pressed"]
 [connection signal="pressed" from="PauseLayer/Pause/settingsButton" to="PauseLayer/Pause/settingsButton" method="_on_pressed"]
 [connection signal="pressed" from="PauseLayer/Pause/achievementsButton" to="PauseLayer/Pause/achievementsButton" method="_on_pressed"]

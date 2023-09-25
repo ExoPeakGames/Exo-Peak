@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw84bf2fckw7u"]
 
-[ext_resource type="Texture2D" uid="uid://8rcecxxes6s1" path="res://ASSETS/UI/grey_button04.png" id="1_hxbon"]
+[ext_resource type="Texture2D" uid="uid://8rcecxxes6s1" path="res://assets/ui/grey_button04.png" id="1_hxbon"]
 [ext_resource type="Script" path="res://MenuScripts/returnButton.gd" id="2_0heqc"]
 
 [node name="Settings" type="Control"]
