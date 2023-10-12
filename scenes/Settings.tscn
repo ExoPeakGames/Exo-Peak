@@ -1,34 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw84bf2fckw7u"]
 
 [ext_resource type="Texture2D" uid="uid://8rcecxxes6s1" path="res://assets/ui/grey_button04.png" id="1_hxbon"]
-[ext_resource type="Script" path="res://scripts/menu/returnButton.gd" id="2_l7kpk"]
+[ext_resource type="Script" path="res://scripts/menuButtons.gd" id="2_v2jer"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
+anchors_preset = 0
+script = ExtResource("2_v2jer")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(1152, 642)
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 208.0
+offset_bottom = 120.0
 color = Color(0.619608, 1, 1, 1)
-metadata/_edit_lock_ = true
 
 [node name="returnButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 469.0
-offset_top = 285.0
-offset_right = 659.0
-offset_bottom = 330.0
+offset_left = 10.0
+offset_top = 43.0
+offset_right = 200.0
+offset_bottom = 88.0
 texture_normal = ExtResource("1_hxbon")
 stretch_mode = 1
-script = ExtResource("2_l7kpk")
 
 [node name="ReturnToMenu" type="Label" parent="returnButton"]
 layout_mode = 0
@@ -41,5 +33,4 @@ theme_override_font_sizes/font_size = 20
 text = "Return to menu"
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="returnButton" to="returnButton" method="_on_playButton_pressed"]
-[connection signal="pressed" from="returnButton" to="returnButton" method="_on_pressed"]
+[connection signal="pressed" from="returnButton" to="." method="_on_return_button_pressed"]
