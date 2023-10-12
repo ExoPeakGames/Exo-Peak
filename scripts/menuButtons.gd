@@ -12,4 +12,4 @@ func _on_settings_button_pressed():
 	emit_signal("scene_change", "settings")
 
 func _on_achievements_button_pressed():
-	emit_signal("scene_change", "acheivements")
+	emit_signal("scene_change", "achievements")

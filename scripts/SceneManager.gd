@@ -16,7 +16,7 @@ func _handle_scene_change(go_to_scene: String):
 			next_scene_name = "scene_1"
 		"title":
 			next_scene_name = "title_screen"
-		"acheivements":
+		"achievements":
 			next_scene_name = "Achievements"
 		_:
 			return
