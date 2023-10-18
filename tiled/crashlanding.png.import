@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qgyhisu3mso"
-path="res://.godot/imported/forest2.png-67cbabdfe58e91800bee532969e762b6.ctex"
+uid="uid://c3bqwixl6mvb2"
+path="res://.godot/imported/crashlanding.png-3617af78b832bea56f4a2e2f1b6b1194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiled/forest2.png"
-dest_files=["res://.godot/imported/forest2.png-67cbabdfe58e91800bee532969e762b6.ctex"]
+source_file="res://crashlanding.png"
+dest_files=["res://.godot/imported/crashlanding.png-3617af78b832bea56f4a2e2f1b6b1194.ctex"]
 
 [params]
 
