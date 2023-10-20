@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw84bf2fckw7u"]
 
 [ext_resource type="Texture2D" uid="uid://8rcecxxes6s1" path="res://assets/ui/buttons/grey_button04.png" id="2_646ab"]
+
 [ext_resource type="Script" path="res://scripts/menuButtons.gd" id="2_v2jer"]
 
 [node name="Settings" type="Control"]
@@ -16,6 +17,7 @@ offset_top = 31.0
 offset_right = 204.0
 offset_bottom = 76.0
 texture_normal = ExtResource("2_646ab")
+
 stretch_mode = 1
 
 [node name="ReturnToMenu" type="Label" parent="returnButton"]

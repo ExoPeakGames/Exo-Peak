@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4glxsiot3fyp"]
 
 [ext_resource type="Texture2D" uid="uid://8rcecxxes6s1" path="res://assets/ui/buttons/grey_button04.png" id="1_wp3s4"]
+
 [ext_resource type="Script" path="res://scripts/menuButtons.gd" id="2_pbcpf"]
 
 [node name="Achievements" type="Control"]
