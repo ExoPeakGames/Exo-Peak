@@ -17,7 +17,6 @@ offset_top = 31.0
 offset_right = 204.0
 offset_bottom = 76.0
 texture_normal = ExtResource("2_646ab")
-
 stretch_mode = 1
 
 [node name="ReturnToMenu" type="Label" parent="returnButton"]
