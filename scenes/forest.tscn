@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbt4m7tqdlktc"]
+
+[ext_resource type="PackedScene" uid="uid://c458m5363q00n" path="res://tiled2/forest.tmx" id="1_xnmny"]
+
+[node name="forest" instance=ExtResource("1_xnmny")]
