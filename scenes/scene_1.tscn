@@ -1,7 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=16 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
+[ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="3_3e4tf"]
+[ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="4_fi4m3"]
+[ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="5_gr88t"]
+[ext_resource type="Texture2D" uid="uid://cy5dj854gr0fh" path="res://assets/ui/buttons/quit_button_pressed.png" id="6_gcn8o"]
+[ext_resource type="Texture2D" uid="uid://bc2i5f5i3uvj2" path="res://assets/ui/buttons/quit_button.png" id="7_no33x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i15eb"]
+texture = ExtResource("4_fi4m3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tl64y"]
+texture = ExtResource("5_gr88t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfr7q"]
+texture = ExtResource("4_fi4m3")
+
+[sub_resource type="Theme" id="Theme_lus3a"]
+Button/font_sizes/font_size = 11
+Button/styles/hover = SubResource("StyleBoxTexture_i15eb")
+Button/styles/normal = SubResource("StyleBoxTexture_tl64y")
+Button/styles/pressed = SubResource("StyleBoxTexture_hfr7q")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 2
+Label/font_sizes/font_size = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urfl4"]
+texture = ExtResource("6_gcn8o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cc5w"]
+texture = ExtResource("7_no33x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5qmip"]
+texture = ExtResource("6_gcn8o")
+
+[sub_resource type="Theme" id="Theme_g2aej"]
+Button/font_sizes/font_size = 11
+Button/styles/hover = SubResource("StyleBoxTexture_urfl4")
+Button/styles/normal = SubResource("StyleBoxTexture_7cc5w")
+Button/styles/pressed = SubResource("StyleBoxTexture_5qmip")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 2
+Label/font_sizes/font_size = 10
 
 [node name="Scene1" type="Node2D"]
 
@@ -10,3 +55,152 @@ rect = Rect2i(0, 0, 208, 120)
 
 [node name="Player" parent="." instance=ExtResource("1_p6b71")]
 position = Vector2(104, 60)
+
+[node name="Pause_Menu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Pause_Background" type="Panel" parent="Pause_Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -60.0
+offset_right = 104.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_3e4tf")
+theme_type_variation = &"pause_background"
+
+[node name="pause_label" type="Label" parent="Pause_Menu/Pause_Background"]
+layout_mode = 2
+offset_left = 85.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pause"
+
+[node name="Primary Buttons" type="VBoxContainer" parent="Pause_Menu/Pause_Background"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 62.0
+offset_bottom = 104.0
+
+[node name="save_button" type="Button" parent="Pause_Menu/Pause_Background/Primary Buttons"]
+layout_mode = 2
+theme = ExtResource("3_3e4tf")
+text = "Save"
+
+[node name="load_button" type="Button" parent="Pause_Menu/Pause_Background/Primary Buttons"]
+layout_mode = 2
+theme = ExtResource("3_3e4tf")
+text = "Load"
+
+[node name="settings_button" type="Button" parent="Pause_Menu/Pause_Background/Primary Buttons"]
+layout_mode = 2
+theme = ExtResource("3_3e4tf")
+text = "Settings"
+
+[node name="Resume" type="HBoxContainer" parent="Pause_Menu/Pause_Background"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 70.0
+offset_right = 108.0
+offset_bottom = 98.0
+
+[node name="resume_button" type="Button" parent="Pause_Menu/Pause_Background/Resume"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_3e4tf")
+theme_type_variation = &"resume_button"
+icon_alignment = 1
+
+[node name="resume_label" type="Label" parent="Pause_Menu/Pause_Background/Resume/resume_button"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 27.0
+offset_right = 40.0
+offset_bottom = 50.0
+theme = SubResource("Theme_lus3a")
+text = "Resume"
+
+[node name="Quit" type="HBoxContainer" parent="Pause_Menu/Pause_Background"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 70.0
+offset_right = 148.0
+offset_bottom = 98.0
+
+[node name="quit_button" type="Button" parent="Pause_Menu/Pause_Background/Quit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_3e4tf")
+theme_type_variation = &"quit_button"
+
+[node name="quit_label" type="Label" parent="Pause_Menu/Pause_Background/Quit/quit_button"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 41.0
+offset_bottom = 50.0
+theme = SubResource("Theme_g2aej")
+text = "Quit"
+
+[node name="Achievments" type="HBoxContainer" parent="Pause_Menu/Pause_Background"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 52.0
+offset_right = 147.0
+offset_bottom = 65.0
+
+[node name="achievements_button" type="Button" parent="Pause_Menu/Pause_Background/Achievments"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_3e4tf")
+theme_type_variation = &"achievement_button"
+text = "Achievements"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Menu/Pause_Background"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 81.0
+offset_right = 59.0
+offset_bottom = 121.0
+
+[node name="HSlider" type="HSlider" parent="Pause_Menu/Pause_Background/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_3e4tf")
+
+[node name="music" type="Label" parent="Pause_Menu/Pause_Background/VBoxContainer/HSlider"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = -15.0
+offset_right = 48.0
+offset_bottom = 4.0
+theme = ExtResource("3_3e4tf")
+theme_override_font_sizes/font_size = 11
+text = "Music"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Pause_Menu/Pause_Background"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 103.0
+offset_right = 59.0
+offset_bottom = 143.0
+
+[node name="HSlider2" type="HSlider" parent="Pause_Menu/Pause_Background/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_3e4tf")
+
+[node name="sfx" type="Label" parent="Pause_Menu/Pause_Background/VBoxContainer2/HSlider2"]
+layout_mode = 2
+offset_left = 13.0
+offset_top = -14.0
+offset_right = 61.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 11
+text = "SFX"
