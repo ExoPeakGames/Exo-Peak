@@ -34,9 +34,8 @@ func _handle_scene_change(go_to_scene: String):
 	var temp = load("res://scenes/" + next_scene_name + ".tscn")
 	#animate.play(animation_name)
 	animate.play("fade_in")
-	current_scene.inputHandle("disable")
-	await animate.animation_finished
 	next_scene = temp.instantiate()
+	await animate.animation_finished
 	call_deferred("add_child", next_scene)
 	next_scene.connect("scene_change", _handle_scene_change)
 
@@ -45,11 +44,8 @@ func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"fade_in":
 			#animate.play(animation_name)
-			animate.play("fade_out")
-			await animate.animation_finished
-			current_scene.inputHandle("enable")
 			current_scene.cleanup()
 			current_scene = next_scene
-			next_scene = null
+			animate.play("fade_out")
 		#"fade_out":
 			# some customization??
