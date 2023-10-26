@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=17 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="3_3e4tf"]
+[ext_resource type="Script" path="res://scripts/menuButtons.gd" id="3_ltdqb"]
 [ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="4_fi4m3"]
 [ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="5_gr88t"]
 [ext_resource type="Texture2D" uid="uid://cy5dj854gr0fh" path="res://assets/ui/buttons/quit_button_pressed.png" id="6_gcn8o"]
@@ -48,26 +49,36 @@ Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/constants/line_spacing = 2
 Label/font_sizes/font_size = 10
 
-[node name="Scene1" type="Node2D"]
+[node name="Scene1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_ltdqb")
 
-[node name="HardBounds" parent="." instance=ExtResource("1_yt00p")]
+[node name="Game" type="Node2D" parent="."]
+
+[node name="HardBounds" parent="Game" instance=ExtResource("1_yt00p")]
 rect = Rect2i(0, 0, 208, 120)
 
-[node name="Player" parent="." instance=ExtResource("1_p6b71")]
+[node name="Player" parent="Game" instance=ExtResource("1_p6b71")]
 position = Vector2(104, 60)
 
-[node name="Pause_Menu" type="CanvasLayer" parent="."]
+[node name="Pause_Menu" type="Control" parent="."]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Pause_Background" type="Panel" parent="Pause_Menu"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -52.0
-offset_right = 96.0
-offset_bottom = 52.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 200.0
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_3e4tf")
@@ -137,20 +148,20 @@ theme_type_variation = &"small_text"
 theme_override_font_sizes/font_size = 5
 text = "Resume"
 
-[node name="Quit" type="HBoxContainer" parent="Pause_Menu/Pause_Background"]
+[node name="TitleScreen" type="HBoxContainer" parent="Pause_Menu/Pause_Background"]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 62.0
 offset_right = 134.0
 offset_bottom = 88.0
 
-[node name="quit_button" type="Button" parent="Pause_Menu/Pause_Background/Quit"]
+[node name="returnButton" type="Button" parent="Pause_Menu/Pause_Background/TitleScreen"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_3e4tf")
 theme_type_variation = &"quit_button"
 
-[node name="quit_label" type="Label" parent="Pause_Menu/Pause_Background/Quit/quit_button"]
+[node name="returnButton" type="Label" parent="Pause_Menu/Pause_Background/TitleScreen/returnButton"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 27.0
@@ -159,7 +170,7 @@ offset_bottom = 43.0
 theme = SubResource("Theme_g2aej")
 theme_type_variation = &"small_text"
 theme_override_font_sizes/font_size = 5
-text = "Quit"
+text = "Title"
 
 [node name="Achievments" type="HBoxContainer" parent="Pause_Menu/Pause_Background"]
 layout_mode = 0

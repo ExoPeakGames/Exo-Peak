@@ -17,6 +17,7 @@ color = Color(0.513726, 0.0941176, 0.278431, 1)
 metadata/_edit_lock_ = true
 
 [node name="Back" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 150.0
 offset_top = 100.0
 offset_right = 198.0
