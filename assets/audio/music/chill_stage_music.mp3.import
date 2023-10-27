@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/chill_stage_music.mp3-512f962dab625421c62113a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

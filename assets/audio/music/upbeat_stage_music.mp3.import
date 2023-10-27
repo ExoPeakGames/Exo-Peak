@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/upbeat_stage_music.mp3-cadbe6658b81cc50999daa
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
