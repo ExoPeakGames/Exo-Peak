@@ -24,3 +24,5 @@ func unpause():
 	hide()
 	paused = false
 
+func _on_resume_button_pressed():
+	unpause()

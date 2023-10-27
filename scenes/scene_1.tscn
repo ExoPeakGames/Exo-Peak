@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=7 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
 [ext_resource type="Script" path="res://scripts/menuButtons.gd" id="3_ltdqb"]
 [ext_resource type="PackedScene" uid="uid://b775uartmpbot" path="res://scenes/pause_menu.tscn" id="4_t3gyp"]
+[ext_resource type="PackedScene" uid="uid://bt0i7vns3kkx8" path="res://scenes/crashlanding.tscn" id="5_ch1iy"]
+[ext_resource type="AudioStream" uid="uid://bvnkv435ldrv2" path="res://assets/audio/music/chill_stage_music.mp3" id="6_4crn0"]
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
@@ -12,10 +14,18 @@ script = ExtResource("3_ltdqb")
 
 [node name="Game" type="Node2D" parent="."]
 
+[node name="crashlanding" parent="Game" instance=ExtResource("5_ch1iy")]
+
 [node name="HardBounds" parent="Game" instance=ExtResource("1_yt00p")]
-rect = Rect2i(0, 0, 208, 120)
+rect = Rect2i(0, 0, 208, 112)
 
 [node name="Player" parent="Game" instance=ExtResource("1_p6b71")]
 position = Vector2(104, 60)
 
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4crn0")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
