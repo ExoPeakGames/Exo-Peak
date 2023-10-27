@@ -1,0 +1,245 @@
+[gd_scene load_steps=14 format=3 uid="uid://b775uartmpbot"]
+
+[ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="1_qljxg"]
+[ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="2_ls6er"]
+[ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="3_jg3xm"]
+[ext_resource type="Texture2D" uid="uid://cy5dj854gr0fh" path="res://assets/ui/buttons/quit_button_pressed.png" id="4_p4lrj"]
+[ext_resource type="Texture2D" uid="uid://bc2i5f5i3uvj2" path="res://assets/ui/buttons/quit_button.png" id="5_o8c8q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thh10"]
+texture = ExtResource("2_ls6er")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rigeq"]
+texture = ExtResource("3_jg3xm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8klmt"]
+texture = ExtResource("2_ls6er")
+
+[sub_resource type="Theme" id="Theme_lus3a"]
+Button/font_sizes/font_size = 11
+Button/styles/hover = SubResource("StyleBoxTexture_thh10")
+Button/styles/normal = SubResource("StyleBoxTexture_rigeq")
+Button/styles/pressed = SubResource("StyleBoxTexture_8klmt")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 2
+Label/font_sizes/font_size = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfekq"]
+texture = ExtResource("4_p4lrj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_blpjd"]
+texture = ExtResource("5_o8c8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryim1"]
+texture = ExtResource("4_p4lrj")
+
+[sub_resource type="Theme" id="Theme_g2aej"]
+Button/font_sizes/font_size = 11
+Button/styles/hover = SubResource("StyleBoxTexture_jfekq")
+Button/styles/normal = SubResource("StyleBoxTexture_blpjd")
+Button/styles/pressed = SubResource("StyleBoxTexture_ryim1")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 2
+Label/font_sizes/font_size = 10
+
+[node name="Pause_Menu" type="Control"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Pause_Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 200.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"pause_background"
+
+[node name="pause_label" type="Label" parent="Pause_Background"]
+layout_mode = 2
+offset_left = 78.0
+offset_top = -1.0
+offset_right = 132.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pause"
+
+[node name="Primary Buttons" type="VBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 58.0
+offset_bottom = 98.0
+
+[node name="save_button" type="Button" parent="Pause_Background/Primary Buttons"]
+custom_minimum_size = Vector2(48, 10)
+layout_mode = 2
+theme = ExtResource("1_qljxg")
+text = "Save"
+
+[node name="load_button" type="Button" parent="Pause_Background/Primary Buttons"]
+custom_minimum_size = Vector2(48, 10)
+layout_mode = 2
+theme = ExtResource("1_qljxg")
+text = "Load"
+
+[node name="inventory_button" type="Button" parent="Pause_Background/Primary Buttons"]
+custom_minimum_size = Vector2(48, 10)
+layout_mode = 2
+text = "Inventory"
+
+[node name="settings_button" type="Button" parent="Pause_Background/Primary Buttons"]
+custom_minimum_size = Vector2(48, 10)
+layout_mode = 2
+theme = ExtResource("1_qljxg")
+text = "Settings"
+
+[node name="Resume" type="HBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 62.0
+offset_right = 98.0
+offset_bottom = 88.0
+
+[node name="resume_button" type="Button" parent="Pause_Background/Resume"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"resume_button"
+icon_alignment = 1
+
+[node name="resume_label" type="Label" parent="Pause_Background/Resume/resume_button"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 49.0
+offset_bottom = 43.0
+theme = SubResource("Theme_lus3a")
+theme_type_variation = &"small_text"
+theme_override_font_sizes/font_size = 5
+text = "Resume"
+
+[node name="TitleScreen" type="HBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 62.0
+offset_right = 134.0
+offset_bottom = 88.0
+
+[node name="returnButton" type="Button" parent="Pause_Background/TitleScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"quit_button"
+
+[node name="returnButton" type="Label" parent="Pause_Background/TitleScreen/returnButton"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 27.0
+offset_right = 36.0
+offset_bottom = 43.0
+theme = SubResource("Theme_g2aej")
+theme_type_variation = &"small_text"
+theme_override_font_sizes/font_size = 5
+text = "Title"
+
+[node name="Achievments" type="HBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 47.0
+offset_right = 137.0
+offset_bottom = 55.0
+
+[node name="achievements_button" type="Button" parent="Pause_Background/Achievments"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"achievement_button"
+text = "Achievements"
+
+[node name="Music" type="VBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 70.0
+offset_right = 57.0
+offset_bottom = 110.0
+
+[node name="music_slider" type="HSlider" parent="Pause_Background/Music"]
+layout_mode = 2
+theme = ExtResource("1_qljxg")
+
+[node name="music" type="Label" parent="Pause_Background/Music/music_slider"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = -8.0
+offset_right = 32.0
+scale = Vector2(1.32, 1)
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"small_text"
+text = "Music"
+
+[node name="SFX" type="VBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 85.0
+offset_right = 57.0
+offset_bottom = 125.0
+
+[node name="sfx_slider" type="HSlider" parent="Pause_Background/SFX"]
+layout_mode = 2
+theme = ExtResource("1_qljxg")
+
+[node name="sfx" type="Label" parent="Pause_Background/SFX/sfx_slider"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = -6.0
+offset_right = 65.0
+offset_bottom = 13.0
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"small_text"
+text = "SFX"
+
+[node name="cover_lever" type="ColorRect" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 53.0
+offset_right = 186.0
+offset_bottom = 93.0
+color = Color(0.605469, 0.605469, 0.605469, 1)
+
+[node name="Volume" type="VBoxContainer" parent="Pause_Background"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 80.0
+offset_right = 225.0
+offset_bottom = 106.0
+rotation = -3.14083
+
+[node name="volume_lever" type="VSlider" parent="Pause_Background/Volume"]
+layout_mode = 2
+theme = ExtResource("1_qljxg")
+
+[node name="master volume" type="Label" parent="Pause_Background/Volume/volume_lever"]
+layout_mode = 2
+offset_left = 36.9703
+offset_top = -3.00299
+offset_right = 76.9703
+offset_bottom = 12.997
+rotation = 3.14159
+theme = ExtResource("1_qljxg")
+theme_type_variation = &"small_text"
+text = "Master 
+	   Volume"
