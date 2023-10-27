@@ -259,3 +259,5 @@ theme = ExtResource("3_3e4tf")
 theme_type_variation = &"small_text"
 text = "Master 
 	   Volume"
+
+[connection signal="pressed" from="Pause_Menu/Pause_Background/TitleScreen/returnButton" to="." method="_on_return_button_pressed"]
