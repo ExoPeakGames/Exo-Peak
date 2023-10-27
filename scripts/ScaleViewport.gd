@@ -21,7 +21,7 @@ func _on_screen_resized():
 var old_window_mode = null
 
 func _input(event):
-	if event.is_action_released("fullscreen"):
+	if event.is_action_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 			old_window_mode = DisplayServer.window_get_mode()
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
