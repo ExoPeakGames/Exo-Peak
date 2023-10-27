@@ -2,8 +2,9 @@ extends SubViewportContainer
 
 func _ready():
 	pivot_offset = size / 2.0
-	if get_tree().root.connect("size_changed", _on_screen_resized) != OK:
+	if get_window().connect("size_changed", _on_screen_resized) != OK:
 		print_debug("An error occurred while connecting the screen_resized signal.")
+	get_window().min_size = size
 	_on_screen_resized()
 
 func _on_screen_resized():

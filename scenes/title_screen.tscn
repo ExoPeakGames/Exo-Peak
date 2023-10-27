@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://wctwydaslxgf"]
+
+[ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="1_qjsas"]
+[ext_resource type="Texture2D" uid="uid://btrwt6vtro3ll" path="res://assets/ui/Menu_Page.png" id="2_qtp67"]
+[ext_resource type="Script" path="res://scripts/menuButtons.gd" id="3_3mdar"]
+
+[sub_resource type="Theme" id="Theme_t210o"]
+default_font = ExtResource("1_qjsas")
+default_font_size = 5
+
+[node name="Title_Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_t210o")
+script = ExtResource("3_3mdar")
+metadata/_edit_lock_ = true
+
+[node name="MenuPage" type="Sprite2D" parent="."]
+position = Vector2(104, 60)
+texture = ExtResource("2_qtp67")
+
+[node name="Game title" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 69.0
+offset_top = 6.0
+offset_right = 709.0
+offset_bottom = 153.0
+scale = Vector2(0.210957, 0.210957)
+theme_override_colors/font_color = Color(0, 0.662745, 0.670588, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 100
+text = "Exo-Peak"
+
+[node name="Left panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 58.0
+offset_right = 72.0
+offset_bottom = 116.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Left panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 49.0
+offset_bottom = 50.0
+
+[node name="PlayButton" type="Button" parent="Left panel/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+metadata/_edit_lock_ = true
+
+[node name="SettingsButton" type="Button" parent="Left panel/VBoxContainer"]
+layout_mode = 2
+text = "Settings
+"
+metadata/_edit_lock_ = true
+
+[node name="AchievementsButton" type="Button" parent="Left panel/VBoxContainer"]
+layout_mode = 2
+text = "Achievements"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Left panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Left panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Left panel/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]

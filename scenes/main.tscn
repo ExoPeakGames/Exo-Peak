@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckwjmromto562"]
+[gd_scene load_steps=8 format=3 uid="uid://ckwjmromto562"]
 
 [ext_resource type="Script" path="res://scripts/blackscreen.gd" id="1_o3lcj"]
 [ext_resource type="Script" path="res://scripts/ScaleViewport.gd" id="2_0hsiq"]
-[ext_resource type="PackedScene" uid="uid://if6ah067nd5p" path="res://scenes/scene_1.tscn" id="3_jt8kn"]
+[ext_resource type="PackedScene" uid="uid://wctwydaslxgf" path="res://scenes/title_screen.tscn" id="3_24fkh"]
+[ext_resource type="Script" path="res://scripts/SceneManager.gd" id="3_jigyd"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="Animation" id="Animation_1uf57"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverlayLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wbcrt"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OverlayLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eao1u"]
+_data = {
+"fade_in": SubResource("Animation_1uf57"),
+"fade_out": SubResource("Animation_wbcrt")
+}
+
+[node name="Main" type="Node"]
 
 [node name="Blackscreen" type="Node2D" parent="."]
 script = ExtResource("1_o3lcj")
@@ -16,11 +53,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 208.0
-offset_bottom = 120.0
+offset_left = -104.0
+offset_top = -60.0
+offset_right = 104.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_0hsiq")
+metadata/_edit_lock_ = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -30,5 +70,26 @@ size = Vector2i(208, 120)
 render_target_update_mode = 4
 
 [node name="SceneManager" type="Node2D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("3_jigyd")
 
-[node name="Scene1" parent="SubViewportContainer/SubViewport/SceneManager" instance=ExtResource("3_jt8kn")]
+[node name="Title_Screen" parent="SubViewportContainer/SubViewport/SceneManager" instance=ExtResource("3_24fkh")]
+
+[node name="OverlayLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport/SceneManager"]
+layer = 10
+
+[node name="Overlay" type="ColorRect" parent="SubViewportContainer/SubViewport/SceneManager/OverlayLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/SceneManager"]
+libraries = {
+"": SubResource("AnimationLibrary_eao1u")
+}
+
+[connection signal="animation_finished" from="SubViewportContainer/SubViewport/SceneManager/AnimationPlayer" to="SubViewportContainer/SubViewport/SceneManager" method="_on_animation_player_animation_finished"]
