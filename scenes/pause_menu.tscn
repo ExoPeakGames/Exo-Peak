@@ -241,3 +241,5 @@ theme = ExtResource("1_qljxg")
 theme_type_variation = &"small_text"
 text = "Master 
 	   Volume"
+
+[connection signal="pressed" from="Pause_Background/Resume/resume_button" to="." method="_on_resume_button_pressed"]
