@@ -4,11 +4,13 @@ extends Node2D
 # Global variables
 @onready var current_scene = $Title_Screen
 @onready var animate  = $AnimationPlayer
+@export var root_path : NodePath
+
 var next_scene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_scene.connect("scene_change", _handle_scene_change);
+	current_scene.connect("scene_change", _handle_scene_change)
 
 func _handle_scene_change(go_to_scene: String):
 	var next_scene_name: String
@@ -30,13 +32,13 @@ func _handle_scene_change(go_to_scene: String):
 			#animation_name =
 		_:
 			return
-		
+	
 	var temp = load("res://scenes/" + next_scene_name + ".tscn")
 	#animate.play(animation_name)
 	animate.play("fade_in")
 	current_scene.inputHandle("disable")
-	await animate.animation_finished
 	next_scene = temp.instantiate()
+	await animate.animation_finished
 	call_deferred("add_child", next_scene)
 	next_scene.connect("scene_change", _handle_scene_change)
 
@@ -45,11 +47,10 @@ func _on_animation_player_animation_finished(anim_name):
 	match anim_name:
 		"fade_in":
 			#animate.play(animation_name)
+			current_scene.cleanup()
+			current_scene = next_scene
 			animate.play("fade_out")
 			await animate.animation_finished
 			current_scene.inputHandle("enable")
-			current_scene.cleanup()
-			current_scene = next_scene
-			next_scene = null
 		#"fade_out":
 			# some customization??

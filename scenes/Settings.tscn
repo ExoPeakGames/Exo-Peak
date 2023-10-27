@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw84bf2fckw7u"]
+[gd_scene load_steps=3 format=3 uid="uid://cw84bf2fckw7u"]
 
-[ext_resource type="Texture2D" uid="uid://8rcecxxes6s1" path="res://assets/ui/buttons/grey_button04.png" id="2_646ab"]
 [ext_resource type="Script" path="res://scripts/menuButtons.gd" id="2_v2jer"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="3_kfjjf"]
 
@@ -8,26 +7,6 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("2_v2jer")
-
-[node name="returnButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 31.0
-offset_right = 204.0
-offset_bottom = 76.0
-texture_normal = ExtResource("2_646ab")
-stretch_mode = 1
-
-[node name="ReturnToMenu" type="Label" parent="returnButton"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 6.0
-offset_right = 173.0
-offset_bottom = 37.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Return to menu"
-metadata/_edit_lock_ = true
 
 [node name="Settings_Menu" type="CanvasLayer" parent="."]
 
@@ -92,7 +71,7 @@ offset_top = 100.0
 offset_right = 198.0
 offset_bottom = 110.0
 
-[node name="achievements_button" type="Button" parent="Settings_Menu/Settings_Background/Back"]
+[node name="returnButton" type="Button" parent="Settings_Menu/Settings_Background/Back"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_kfjjf")
@@ -161,4 +140,4 @@ theme = ExtResource("3_kfjjf")
 theme_type_variation = &"small_text"
 text = "check"
 
-[connection signal="pressed" from="returnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Settings_Menu/Settings_Background/Back/returnButton" to="." method="_on_return_button_pressed"]
