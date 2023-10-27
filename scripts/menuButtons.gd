@@ -36,7 +36,7 @@ func cleanup():
 func handleSounds():
 	# set up audio stream players and load sound files
 	for i in sounds.keys():
-		sounds[i].stream = load("res://Assets/Music-sfx/" + str(i) + ".mp3")
+		sounds[i].stream = load("res://assets/audio/sfx/" + str(i) + ".mp3")
 		# assign output mixer bus
 		sounds[i].bus = &"UI"
 		# add them to the scene tree
