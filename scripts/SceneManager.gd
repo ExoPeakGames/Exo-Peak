@@ -4,7 +4,6 @@ extends Node2D
 # Global variables
 @onready var current_scene = $Title_Screen
 @onready var animate  = $AnimationPlayer
-@export var root_path : NodePath
 
 var next_scene = null
 
