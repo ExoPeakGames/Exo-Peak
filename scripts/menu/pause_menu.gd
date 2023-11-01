@@ -26,3 +26,13 @@ func unpause():
 
 func _on_resume_button_pressed():
 	unpause()
+
+func _on_return_button_pressed():
+	MenuButtons._on_return_button_pressed()
+
+func _on_achievements_button_pressed():
+	MenuButtons._on_achievements_button_pressed()
+
+func _on_settings_button_pressed():
+	MenuButtons._on_settings_button_pressed()
+

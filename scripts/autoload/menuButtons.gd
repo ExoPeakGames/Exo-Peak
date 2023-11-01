@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 signal scene_change(scene_name: String)
 
@@ -11,6 +11,7 @@ func _ready():
 	handleSounds()
 
 func _on_return_button_pressed():
+	print("pressing button")
 	emit_signal("scene_change", "title")
 
 func _on_play_button_pressed():
@@ -22,13 +23,15 @@ func _on_settings_button_pressed():
 func _on_achievements_button_pressed():
 	emit_signal("scene_change", "achievements")
 
-# to disable ANY input (mouse, keyboard, mic) during scene transitions
+# to disable ANY input (mouse) during scene transitions
 func inputHandle(handle: String):
 	match handle:
 		"disable":
 			get_tree().get_root().set_disable_input(true)
+			# disable keyboard
 		"enable":
 			get_tree().get_root().set_disable_input(false)
+			# enable keyboard
 # add any cleanup logic here. this will run while deleting an instance of a scene.
 func cleanup():
 	queue_free()

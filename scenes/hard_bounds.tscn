@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://kmt5elxudxry"]
 
-[ext_resource type="Script" path="res://scripts/HardBounds.gd" id="1_o6x0m"]
+[ext_resource type="Script" path="res://scripts/game/HardBounds.gd" id="1_o6x0m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k6xej"]
 normal = Vector2(1, 0)
