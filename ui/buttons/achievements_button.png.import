@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7dego3glehvs"
-path="res://.godot/imported/achievements_button.png-9fbfc4d4ab47f2af7e99a4776be5936e.ctex"
+path="res://.godot/imported/achievements_button.png-6dece5fb07d9d25d8b11e6c6bf3d43d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/buttons/achievements_button.png"
-dest_files=["res://.godot/imported/achievements_button.png-9fbfc4d4ab47f2af7e99a4776be5936e.ctex"]
+source_file="res://ui/buttons/achievements_button.png"
+dest_files=["res://.godot/imported/achievements_button.png-6dece5fb07d9d25d8b11e6c6bf3d43d4.ctex"]
 
 [params]
 
