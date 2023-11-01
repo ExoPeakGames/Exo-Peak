@@ -4,6 +4,7 @@ var paused := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MenuButtons.handleSounds(self)
 	if visible:
 		hide()
 
