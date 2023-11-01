@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	MenuButtons.handleSounds(self)
+	
 func _on_play_button_pressed():
 	MenuButtons._on_play_button_pressed()
 
