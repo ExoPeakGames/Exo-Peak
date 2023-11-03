@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=3 uid="uid://b775uartmpbot"]
 
 [ext_resource type="Script" path="res://scripts/menu/pause_menu.gd" id="1_l0g80"]
-[ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="1_qljxg"]
-[ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="2_ls6er"]
-[ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="3_jg3xm"]
-[ext_resource type="Texture2D" uid="uid://cy5dj854gr0fh" path="res://assets/ui/buttons/quit_button_pressed.png" id="4_p4lrj"]
-[ext_resource type="Texture2D" uid="uid://bc2i5f5i3uvj2" path="res://assets/ui/buttons/quit_button.png" id="5_o8c8q"]
-[ext_resource type="Texture2D" uid="uid://c70bud55p2lyu" path="res://assets/ui/slider/lever_bg.png" id="7_6i4p5"]
+[ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://ui/menu_theme.tres" id="1_qljxg"]
+[ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://ui/buttons/resume_button_pressed.png" id="2_ls6er"]
+[ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://ui/buttons/resume_button.png" id="3_jg3xm"]
+[ext_resource type="Texture2D" uid="uid://cy5dj854gr0fh" path="res://ui/buttons/quit_button_pressed.png" id="4_p4lrj"]
+[ext_resource type="Texture2D" uid="uid://bc2i5f5i3uvj2" path="res://ui/buttons/quit_button.png" id="5_o8c8q"]
+[ext_resource type="Texture2D" uid="uid://c70bud55p2lyu" path="res://ui/slider/lever_bg.png" id="7_6i4p5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thh10"]
 texture = ExtResource("2_ls6er")

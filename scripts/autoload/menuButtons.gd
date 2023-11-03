@@ -1,11 +1,12 @@
 extends Node
 
 signal scene_change(scene_name: String)
-
+var disableKeyboard = false
 var sounds = {
 	&"UI_Hover" : AudioStreamPlayer.new(),
 	&"UI_Click" : AudioStreamPlayer.new(),
 }
+var pmenuButton = false
 
 func _ready():
 	# set up audio stream players and load sound files
@@ -32,17 +33,15 @@ func _on_achievements_button_pressed():
 func inputHandle(handle: String):
 	match handle:
 		"disable":
+			disableKeyboard = true
 			get_tree().get_root().set_disable_input(true)
 			# disable keyboard
 		"enable":
+			disableKeyboard = false
 			get_tree().get_root().set_disable_input(false)
 			# enable keyboard
-# add any cleanup logic here. this will run while deleting an instance of a scene.
-func cleanup():
-	queue_free()
 
 func handleSounds(submenu: Node):
-
 	# connect signals to the method that plays the sounds
 	install_sounds(submenu)
 
@@ -51,10 +50,8 @@ func install_sounds(node: Node) -> void:
 		if child is Button:
 			child.mouse_entered.connect( ui_sfx_play.bind(&"UI_Hover") )
 			child.pressed.connect( ui_sfx_play.bind(&"UI_Click") )
-		
 		# recursion
 		install_sounds(child)
 
 func ui_sfx_play(sound : String) -> void:
-#	printt("Playing sound:", sound)
 	sounds[sound].play()
