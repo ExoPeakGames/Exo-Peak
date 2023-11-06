@@ -1,14 +1,21 @@
-extends Control
+extends Node
 
 signal scene_change(scene_name: String)
-
+var disableKeyboard = false
 var sounds = {
 	&"UI_Hover" : AudioStreamPlayer.new(),
 	&"UI_Click" : AudioStreamPlayer.new(),
 }
+var pmenuButton = false
 
 func _ready():
-	handleSounds()
+	# set up audio stream players and load sound files
+	for k in sounds.keys():
+		sounds[k].stream = load("res://assets/audio/sfx/" + str(k) + ".mp3")
+		# assign output mixer bus
+		sounds[k].bus = &"UI"
+		# add them to the scene tree
+		add_child(sounds[k])
 
 func _on_return_button_pressed():
 	emit_signal("scene_change", "title")
@@ -22,40 +29,31 @@ func _on_settings_button_pressed():
 func _on_achievements_button_pressed():
 	emit_signal("scene_change", "achievements")
 
-# to disable ANY input (mouse, keyboard, mic) during scene transitions
+# to disable ANY input (mouse) during scene transitions
 func inputHandle(handle: String):
 	match handle:
 		"disable":
+			disableKeyboard = true
 			get_tree().get_root().set_disable_input(true)
+			# disable keyboard
 		"enable":
+			disableKeyboard = false
 			get_tree().get_root().set_disable_input(false)
-# add any cleanup logic here. this will run while deleting an instance of a scene.
-func cleanup():
-	queue_free()
+			# enable keyboard
 
-func handleSounds():
-	# set up audio stream players and load sound files
-	for i in sounds.keys():
-		sounds[i].stream = load("res://Assets/Music-sfx/" + str(i) + ".mp3")
-		# assign output mixer bus
-		sounds[i].bus = &"UI"
-		# add them to the scene tree
-		add_child(sounds[i])
-
+func handleSounds(submenu: Node):
 	# connect signals to the method that plays the sounds
-	install_sounds(self)
+	install_sounds(submenu)
 
 func install_sounds(node: Node) -> void:
-	for i in node.get_children():
-		if i is Button:
-			i.mouse_entered.connect( ui_sfx_play.bind(&"UI_Hover") )
-			i.pressed.connect( ui_sfx_play.bind(&"UI_Click") )
-		
+	for child in node.get_children():
+		if child is Button:
+			child.mouse_entered.connect( ui_sfx_play.bind(&"UI_Hover") )
+			child.pressed.connect( ui_sfx_play.bind(&"UI_Click") )
 		# recursion
-		install_sounds(i)
+		install_sounds(child)
 
 func ui_sfx_play(sound : String) -> void:
-#	printt("Playing sound:", sound)
 	sounds[sound].play()
 
 func progressBar():

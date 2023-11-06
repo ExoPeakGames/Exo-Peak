@@ -4,15 +4,16 @@ extends Node2D
 # Global variables
 @onready var current_scene = $Title_Screen
 @onready var animate  = $AnimationPlayer
-@export var root_path : NodePath
-
 var next_scene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_scene.connect("scene_change", _handle_scene_change)
+	# current_scene.connect("scene_change", _handle_scene_change)
+	MenuButtons.handleSounds(current_scene)
+	MenuButtons.connect("scene_change", _handle_scene_change)
 
 func _handle_scene_change(go_to_scene: String):
+	
 	var next_scene_name: String
 	# Thinking of adding a animation name variable to later choose what animations to play
 	# For now, I added simple fade in/out animations.
@@ -26,31 +27,33 @@ func _handle_scene_change(go_to_scene: String):
 			#animation_name =
 		"title":
 			next_scene_name = "title_screen"
+			MenuButtons.pmenuButton = false
 			#animation_name =
 		"achievements":
 			next_scene_name = "Achievements"
 			#animation_name =
 		_:
 			return
-	
 	var temp = load("res://scenes/" + next_scene_name + ".tscn")
 	#animate.play(animation_name)
 	animate.play("fade_in")
-	current_scene.inputHandle("disable")
+	MenuButtons.inputHandle("disable")
 	next_scene = temp.instantiate()
 	await animate.animation_finished
 	call_deferred("add_child", next_scene)
-	next_scene.connect("scene_change", _handle_scene_change)
+	# MenuButtons.connect("scene_change", _handle_scene_change)
 
 func _on_animation_player_animation_finished(anim_name):
 	# added a match here just in case we would like to do something different for each animation
 	match anim_name:
 		"fade_in":
 			#animate.play(animation_name)
-			current_scene.cleanup()
+			current_scene.queue_free()
 			current_scene = next_scene
 			animate.play("fade_out")
+			get_tree().paused = false
 			await animate.animation_finished
-			current_scene.inputHandle("enable")
+			MenuButtons.inputHandle("enable")
+			MenuButtons.handleSounds(current_scene)
 		#"fade_out":
 			# some customization??
