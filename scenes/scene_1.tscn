@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=8 format=3 uid="uid://if6ah067nd5p"]
 
-[ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_le2sg"]
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
 [ext_resource type="PackedScene" uid="uid://b775uartmpbot" path="res://scenes/pause_menu.tscn" id="4_t3gyp"]
@@ -12,7 +11,6 @@
 [node name="Scene1" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_le2sg")
 
 [node name="Game" type="Node2D" parent="."]
 
