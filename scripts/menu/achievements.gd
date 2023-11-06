@@ -1,7 +1,10 @@
-extends Control
+extends CanvasLayer
 
 func _ready():
-	MenuButtons.handleSounds(self)
+	pass
 
 func _on_return_button_pressed():
-	MenuButtons._on_return_button_pressed()
+	if MenuButtons.pmenuButton:
+		hide()
+	else:
+		MenuButtons._on_return_button_pressed()
