@@ -32,8 +32,8 @@ func _on_return_button_pressed():
 
 func _on_achievements_button_pressed():
 	MenuButtons.pmenuButton = true
-	$"Achievements".show()
+	$Achievements.show()
 
 func _on_settings_button_pressed():
 	MenuButtons.pmenuButton = true	
-	$"Settings".show()
+	$Settings.show()
