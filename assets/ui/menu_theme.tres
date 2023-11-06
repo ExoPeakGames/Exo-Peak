@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://ui/buttons/resume_button.png" id="10_q7bef"]
 [ext_resource type="Texture2D" uid="uid://b7dego3glehvs" path="res://ui/buttons/achievements_button.png" id="11_kha46"]
 [ext_resource type="Texture2D" uid="uid://chmu07k61pnld" path="res://ui/slider/lever_handle.png" id="12_in75s"]
-[ext_resource type="Texture2D" uid="uid://cgc0bcyn7t8l3" path="res://assets/ui/background.png" id="12_phlp6"]
-[ext_resource type="Texture2D" uid="uid://dq4bk4xv8y01" path="res://assets/ui/slider/lever_down.png" id="13_duldn"]
+[ext_resource type="Texture2D" uid="uid://bm5n5mvpnejqm" path="res://ui/background.png" id="12_phlp6"]
+[ext_resource type="Texture2D" uid="uid://cuealyv6he5n7" path="res://ui/slider/lever_up.png" id="12_pyol3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjhny"]
 texture = ExtResource("1_qcoow")
@@ -59,18 +59,20 @@ texture = ExtResource("7_t8lum")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otlhi"]
 texture = ExtResource("8_8kg1y")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofoin"]
-bg_color = Color(0.605469, 0.605469, 0.605469, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0lta"]
+texture = ExtResource("12_pyol3")
+texture_margin_top = 13.0
+texture_margin_bottom = 12.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefo1"]
-bg_color = Color(0.605469, 0.605469, 0.605469, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlmb6"]
+texture = ExtResource("12_pyol3")
+texture_margin_top = 13.0
+texture_margin_bottom = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s26n6"]
-texture = ExtResource("13_duldn")
 texture_margin_left = 13.0
-texture_margin_top = 10.0
+texture_margin_top = 23.0
 texture_margin_right = 13.0
-texture_margin_bottom = 14.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gh7lo"]
 texture = ExtResource("10_ium5j")
@@ -141,8 +143,8 @@ VSlider/constants/center_grabber = 0
 VSlider/icons/grabber = ExtResource("12_in75s")
 VSlider/icons/grabber_disabled = ExtResource("12_in75s")
 VSlider/icons/grabber_highlight = ExtResource("12_in75s")
-VSlider/styles/grabber_area = SubResource("StyleBoxFlat_ofoin")
-VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_tefo1")
+VSlider/styles/grabber_area = SubResource("StyleBoxTexture_q0lta")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_hlmb6")
 VSlider/styles/slider = SubResource("StyleBoxTexture_s26n6")
 achievement_button/base_type = &"Button"
 achievement_button/font_sizes/font_size = 5
