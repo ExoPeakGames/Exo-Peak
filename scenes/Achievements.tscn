@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://d4glxsiot3fyp"]
 
-[ext_resource type="Theme" uid="uid://b6er8k77x63wg" path="res://assets/ui/menu_theme.tres" id="2_7daw6"]
-[ext_resource type="Script" path="res://scripts/menuButtons.gd" id="2_pbcpf"]
+[ext_resource type="Script" path="res://scripts/achievement_menu.gd" id="1_su4kk"]
+[ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="2_7daw6"]
 [ext_resource type="Texture2D" uid="uid://b0b28mj81pkxc" path="res://assets/ui/checkmark.png" id="3_efkpd"]
-[ext_resource type="Theme" uid="uid://bxb02bcsgjo53" path="res://assets/ui/achievements_theme.tres" id="3_u7gyc"]
+[ext_resource type="Theme" uid="uid://d1m0coh2y5kun" path="res://assets/ui/achievements_theme.tres" id="3_u7gyc"]
 [ext_resource type="Texture2D" uid="uid://kddg1g301lti" path="res://assets/ui/xmark.png" id="4_4jtj7"]
 
 [node name="Achievements" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("2_pbcpf")
+script = ExtResource("1_su4kk")
 metadata/_edit_lock_ = true
 
 [node name="BackGround" type="ColorRect" parent="."]
@@ -41,69 +41,100 @@ offset_right = 205.0
 offset_bottom = 104.0
 theme = ExtResource("3_u7gyc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="AchievementList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Achievement1" type="HBoxContainer" parent="ScrollContainer/AchievementList"]
 layout_mode = 2
 
-[node name="Achievement1" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="achievementLogo" type="TextureRect" parent="ScrollContainer/VBoxContainer/Achievement1"]
+[node name="achievement1Logo" type="TextureRect" parent="ScrollContainer/AchievementList/Achievement1"]
 show_behind_parent = true
 layout_mode = 2
 
-[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Achievement1"]
+[node name="achievement1Info" type="VBoxContainer" parent="ScrollContainer/AchievementList/Achievement1"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="achievement1Name" type="Label" parent="ScrollContainer/VBoxContainer/Achievement1/achievementInfo"]
+[node name="achievement1Name" type="Label" parent="ScrollContainer/AchievementList/Achievement1/achievement1Info"]
 layout_mode = 2
 theme = ExtResource("3_u7gyc")
-text = "achievement 1"
+text = "Crash Landing on Who?"
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Achievement1/achievementInfo"]
+[node name="achievement1Desc" type="Label" parent="ScrollContainer/AchievementList/Achievement1/achievement1Info"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme = ExtResource("3_u7gyc")
-text = "achievement description"
+text = "Beat Stage 1"
 
-[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/VBoxContainer/Achievement1/achievementInfo"]
+[node name="achievement1Prog" type="ProgressBar" parent="ScrollContainer/AchievementList/Achievement1/achievement1Info"]
 layout_mode = 2
 theme = ExtResource("3_u7gyc")
 show_percentage = false
 
-[node name="achievementState" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Achievement1"]
+[node name="achievement1State" type="Sprite2D" parent="ScrollContainer/AchievementList/Achievement1"]
 position = Vector2(181, 17)
 texture = ExtResource("4_4jtj7")
 
-[node name="Achievement2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Achievement2" type="HBoxContainer" parent="ScrollContainer/AchievementList"]
 layout_mode = 2
 
-[node name="achievementLogo" type="TextureRect" parent="ScrollContainer/VBoxContainer/Achievement2"]
+[node name="achievement2Logo" type="TextureRect" parent="ScrollContainer/AchievementList/Achievement2"]
 show_behind_parent = true
 layout_mode = 2
 
-[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Achievement2"]
+[node name="achievement2Info" type="VBoxContainer" parent="ScrollContainer/AchievementList/Achievement2"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+theme = ExtResource("3_u7gyc")
 
-[node name="achievement1Name" type="Label" parent="ScrollContainer/VBoxContainer/Achievement2/achievementInfo"]
+[node name="achievement2Name" type="Label" parent="ScrollContainer/AchievementList/Achievement2/achievement2Info"]
 layout_mode = 2
 theme = ExtResource("3_u7gyc")
-text = "achievement 2"
+text = "*funny name*"
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Achievement2/achievementInfo"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_u7gyc")
-text = "achievement description"
-
-[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/VBoxContainer/Achievement2/achievementInfo"]
+[node name="achievement2Desc" type="Label" parent="ScrollContainer/AchievementList/Achievement2/achievement2Info"]
 layout_mode = 2
 theme = ExtResource("3_u7gyc")
-min_value = 100.0
+text = "Beat Stage 2"
+
+[node name="achievement2Prog" type="ProgressBar" parent="ScrollContainer/AchievementList/Achievement2/achievement2Info"]
+layout_mode = 2
+theme = ExtResource("3_u7gyc")
 value = 100.0
 show_percentage = false
 
-[node name="achievementState" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Achievement2"]
+[node name="achievement2State" type="Sprite2D" parent="ScrollContainer/AchievementList/Achievement2"]
+position = Vector2(180, 16)
+texture = ExtResource("3_efkpd")
+
+[node name="Achievement3" type="HBoxContainer" parent="ScrollContainer/AchievementList"]
+layout_mode = 2
+
+[node name="achievement3Logo" type="TextureRect" parent="ScrollContainer/AchievementList/Achievement3"]
+show_behind_parent = true
+layout_mode = 2
+
+[node name="achievement3Info" type="VBoxContainer" parent="ScrollContainer/AchievementList/Achievement3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_u7gyc")
+
+[node name="achievement3Name" type="Label" parent="ScrollContainer/AchievementList/Achievement3/achievement3Info"]
+layout_mode = 2
+theme = ExtResource("3_u7gyc")
+text = "*funny name*"
+
+[node name="achievement3Desc" type="Label" parent="ScrollContainer/AchievementList/Achievement3/achievement3Info"]
+layout_mode = 2
+theme = ExtResource("3_u7gyc")
+text = "Beat Stage 3"
+
+[node name="achievement3Prog" type="ProgressBar" parent="ScrollContainer/AchievementList/Achievement3/achievement3Info"]
+layout_mode = 2
+theme = ExtResource("3_u7gyc")
+show_percentage = false
+
+[node name="achievement3State" type="Sprite2D" parent="ScrollContainer/AchievementList/Achievement3"]
 position = Vector2(180, 16)
 texture = ExtResource("3_efkpd")
 

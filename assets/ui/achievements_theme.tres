@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=47 format=3 uid="uid://bxb02bcsgjo53"]
+[gd_resource type="Theme" load_steps=48 format=3 uid="uid://d1m0coh2y5kun"]
 
 [ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="1_d27rn"]
 [ext_resource type="Texture2D" uid="uid://byqf844qptael" path="res://assets/ui/buttons/button_pressed.png" id="2_3msj2"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dx57p8e4cxw0k" path="res://assets/ui/buttons/tab_selected.png" id="9_l7lib"]
 [ext_resource type="Texture2D" uid="uid://c2dlm5tm5a7po" path="res://assets/ui/buttons/tab.png" id="10_l0xxj"]
 [ext_resource type="Texture2D" uid="uid://chmu07k61pnld" path="res://assets/ui/slider/lever_handle.png" id="11_kopj7"]
-[ext_resource type="Texture2D" uid="uid://dq4bk4xv8y01" path="res://assets/ui/slider/lever_down.png" id="12_54d2l"]
+[ext_resource type="Texture2D" path="res://assets/ui/slider/lever_down.png" id="12_54d2l"]
 [ext_resource type="Texture2D" uid="uid://61snay8hbgg0" path="res://assets/ui/buttons/achievements_button_pressed.png" id="13_m2dea"]
 [ext_resource type="Texture2D" uid="uid://b7dego3glehvs" path="res://assets/ui/buttons/achievements_button.png" id="14_savmn"]
 [ext_resource type="Texture2D" uid="uid://cgc0bcyn7t8l3" path="res://assets/ui/background.png" id="15_vk47r"]
@@ -48,8 +48,11 @@ color = Color(0.247059, 0.247059, 0.247059, 1)
 texture = ExtResource("7_s6ecs")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wof5w"]
-bg_color = Color(0.27451, 0.654902, 0.780392, 1)
+bg_color = Color(0.737255, 0, 0.0745098, 1)
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xunxp"]
+bg_color = Color(0, 0.721569, 0.290196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1hmm"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -137,6 +140,7 @@ Label/font_sizes/font_size = 8
 Panel/styles/panel = SubResource("StyleBoxTexture_l02c5")
 ProgressBar/font_sizes/font_size = 5
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wof5w")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_xunxp")
 TabContainer/constants/side_margin = 3
 TabContainer/font_sizes/font_size = 11
 TabContainer/styles/panel = SubResource("StyleBoxFlat_f1hmm")
