@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=46 format=3 uid="uid://b6er8k77x63wg"]
+[gd_resource type="Theme" load_steps=46 format=3 uid="uid://clx7u60ug2yr"]
 
 [ext_resource type="Texture2D" uid="uid://byqf844qptael" path="res://assets/ui/buttons/button_pressed.png" id="1_qcoow"]
 [ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="1_udorc"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b7dego3glehvs" path="res://assets/ui/buttons/achievements_button.png" id="11_kha46"]
 [ext_resource type="Texture2D" uid="uid://chmu07k61pnld" path="res://assets/ui/slider/lever_handle.png" id="12_in75s"]
 [ext_resource type="Texture2D" uid="uid://bm5n5mvpnejqm" path="res://assets/ui/background.png" id="12_phlp6"]
-[ext_resource type="Texture2D" uid="uid://cuealyv6he5n7" path="res://assets/ui/slider/lever_up.png" id="12_pyol3"]
+[ext_resource type="Texture2D" path="res://assets/ui/slider/lever_up.png" id="12_pyol3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjhny"]
 texture = ExtResource("1_qcoow")
