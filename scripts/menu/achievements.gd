@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+var jumps
 func _ready():
 	loadAchievementProgress()
 	pass
@@ -28,3 +28,9 @@ func loadAchievementProgress():
 		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/checkmark.png")
 	else:
 		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/xmark.png")
+		
+	$ScrollContainer/achievementList/achievement4/achievementInfo/achievementProg.value = 0
+	if $ScrollContainer/achievementList/achievement4/achievementInfo/achievementProg.value == 100:
+		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/checkmark.png")
+	else:
+		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/xmark.png")

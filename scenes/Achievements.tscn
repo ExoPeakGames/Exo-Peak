@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d4glxsiot3fyp"]
+[gd_scene load_steps=54 format=3 uid="uid://d4glxsiot3fyp"]
 
 [ext_resource type="Script" path="res://scripts/menu/achievements.gd" id="1_pum6e"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="2_7daw6"]
@@ -14,13 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://dx57p8e4cxw0k" path="res://assets/ui/buttons/tab_selected.png" id="10_k4dig"]
 [ext_resource type="Texture2D" uid="uid://c2dlm5tm5a7po" path="res://assets/ui/buttons/tab.png" id="11_niv1l"]
 [ext_resource type="Texture2D" uid="uid://chmu07k61pnld" path="res://assets/ui/slider/lever_handle.png" id="12_fypml"]
-[ext_resource type="Texture2D" path="res://assets/ui/slider/lever_down.png" id="13_slcwl"]
 [ext_resource type="Texture2D" uid="uid://61snay8hbgg0" path="res://assets/ui/buttons/achievements_button_pressed.png" id="14_7hb6o"]
 [ext_resource type="Texture2D" uid="uid://b7dego3glehvs" path="res://assets/ui/buttons/achievements_button.png" id="15_17tcy"]
 [ext_resource type="Texture2D" uid="uid://bm5n5mvpnejqm" path="res://assets/ui/background.png" id="16_ld2be"]
 [ext_resource type="Texture2D" uid="uid://cy5dj854gr0fh" path="res://assets/ui/buttons/quit_button_pressed.png" id="17_idgy7"]
 [ext_resource type="Texture2D" uid="uid://bc2i5f5i3uvj2" path="res://assets/ui/buttons/quit_button.png" id="18_4616k"]
 [ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="19_qtyre"]
+[ext_resource type="Theme" uid="uid://d1m0coh2y5kun" path="res://assets/ui/achievements_theme.tres" id="20_rdx2i"]
 [ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="20_spo36"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjhny"]
@@ -71,6 +71,8 @@ texture = ExtResource("10_k4dig")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otlhi"]
 texture = ExtResource("11_niv1l")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gw2ub"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofoin"]
 bg_color = Color(0.605469, 0.605469, 0.605469, 1)
 
@@ -78,7 +80,6 @@ bg_color = Color(0.605469, 0.605469, 0.605469, 1)
 bg_color = Color(0.605469, 0.605469, 0.605469, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s26n6"]
-texture = ExtResource("13_slcwl")
 texture_margin_left = 13.0
 texture_margin_top = 10.0
 texture_margin_right = 13.0
@@ -154,6 +155,7 @@ TabContainer/styles/panel = SubResource("StyleBoxFlat_f1hmm")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_wytsq")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_h4kyc")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_otlhi")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_gw2ub")
 VSlider/constants/center_grabber = 0
 VSlider/icons/grabber = ExtResource("12_fypml")
 VSlider/icons/grabber_disabled = ExtResource("12_fypml")
@@ -188,23 +190,41 @@ process_mode = 3
 script = ExtResource("1_pum6e")
 metadata/_edit_lock_ = true
 
-[node name="BackGround" type="ColorRect" parent="."]
-offset_right = 208.0
-offset_bottom = 120.0
-color = Color(0.513726, 0.0941176, 0.278431, 1)
-metadata/_edit_lock_ = true
+[node name="Settings_Background" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -60.0
+offset_right = 104.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7daw6")
+
+[node name="settings_label" type="Label" parent="Settings_Background"]
+offset_left = 50.0
+offset_top = 2.0
+offset_right = 158.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Achievements"
+vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 206.0
-offset_bottom = 97.0
-theme = SubResource("Theme_sgaq5")
+offset_left = 8.0
+offset_top = 28.0
+offset_right = 201.0
+offset_bottom = 98.0
+theme = ExtResource("20_rdx2i")
 
 [node name="achievementList" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("20_rdx2i")
 
 [node name="achievement1" type="HBoxContainer" parent="ScrollContainer/achievementList"]
 layout_mode = 2
@@ -212,6 +232,7 @@ layout_mode = 2
 [node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement1"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("20_rdx2i")
 
 [node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement1/achievementInfo"]
 layout_mode = 2
@@ -230,7 +251,7 @@ theme = SubResource("Theme_sgaq5")
 show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement1"]
-position = Vector2(184, 18)
+position = Vector2(167, 18)
 texture = ExtResource("4_4jtj7")
 
 [node name="achievement2" type="HBoxContainer" parent="ScrollContainer/achievementList"]
@@ -239,6 +260,7 @@ layout_mode = 2
 [node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("20_rdx2i")
 
 [node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement2/achievementInfo"]
 layout_mode = 2
@@ -256,7 +278,7 @@ theme = SubResource("Theme_sgaq5")
 show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement2"]
-position = Vector2(184, 18)
+position = Vector2(167, 18)
 texture = ExtResource("4_4jtj7")
 
 [node name="achievement3" type="HBoxContainer" parent="ScrollContainer/achievementList"]
@@ -282,7 +304,33 @@ theme = SubResource("Theme_sgaq5")
 show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement3"]
-position = Vector2(184, 18)
+position = Vector2(167, 18)
+texture = ExtResource("4_4jtj7")
+
+[node name="achievement4" type="HBoxContainer" parent="ScrollContainer/achievementList"]
+layout_mode = 2
+
+[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement4/achievementInfo"]
+layout_mode = 2
+theme = SubResource("Theme_sgaq5")
+text = "You Jump Good!"
+
+[node name="achievementDesc" type="Label" parent="ScrollContainer/achievementList/achievement4/achievementInfo"]
+layout_mode = 2
+theme = SubResource("Theme_sgaq5")
+text = "Jump 10 Times"
+
+[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/achievementList/achievement4/achievementInfo"]
+layout_mode = 2
+theme = SubResource("Theme_sgaq5")
+show_percentage = false
+
+[node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement4"]
+position = Vector2(167, 18)
 texture = ExtResource("4_4jtj7")
 
 [node name="Back" type="HBoxContainer" parent="."]

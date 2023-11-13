@@ -55,7 +55,3 @@ func install_sounds(node: Node) -> void:
 
 func ui_sfx_play(sound : String) -> void:
 	sounds[sound].play()
-
-func progressBar():
-	$ScrollContainer/VBoxContainer/Achievement2/achievementInfo/achievementProgress 
-	
