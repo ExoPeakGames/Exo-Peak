@@ -1,5 +1,5 @@
 extends CanvasLayer
-var jumps
+
 func _ready():
 	loadAchievementProgress()
 	pass
