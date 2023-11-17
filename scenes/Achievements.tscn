@@ -4,7 +4,6 @@
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="2_7daw6"]
 [ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="2_ci7m8"]
 [ext_resource type="Texture2D" uid="uid://byqf844qptael" path="res://assets/ui/buttons/button_pressed.png" id="3_0ylwv"]
-[ext_resource type="Texture2D" uid="uid://kddg1g301lti" path="res://assets/ui/xmark.png" id="4_4jtj7"]
 [ext_resource type="Texture2D" uid="uid://blmdoh6guaodf" path="res://assets/ui/buttons/button.png" id="4_x23rd"]
 [ext_resource type="Texture2D" uid="uid://82rc7kufaup8" path="res://assets/ui/buttons/toggle_on.png" id="5_qomdl"]
 [ext_resource type="Texture2D" uid="uid://bynsnbq0lkcus" path="res://assets/ui/buttons/toggle_off.png" id="6_0sklj"]
@@ -22,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="19_qtyre"]
 [ext_resource type="Theme" uid="uid://d1m0coh2y5kun" path="res://assets/ui/achievements_theme.tres" id="20_rdx2i"]
 [ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="20_spo36"]
+[ext_resource type="Texture2D" uid="uid://bf2e6xyqv7b50" path="res://assets/ui/checkmark-grey.png" id="22_bkdrs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjhny"]
 texture = ExtResource("3_0ylwv")
@@ -185,7 +185,7 @@ small_text/base_type = &"Label"
 small_text/font_sizes/font_size = 5
 small_text/fonts/font = ExtResource("2_ci7m8")
 
-[node name="Achievements" type="CanvasLayer"]
+[node name="achievements" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_pum6e")
 metadata/_edit_lock_ = true
@@ -205,6 +205,7 @@ grow_vertical = 2
 theme = ExtResource("2_7daw6")
 
 [node name="settings_label" type="Label" parent="Settings_Background"]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 2.0
 offset_right = 158.0
@@ -252,7 +253,7 @@ show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement1"]
 position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+texture = ExtResource("22_bkdrs")
 
 [node name="achievement2" type="HBoxContainer" parent="ScrollContainer/achievementList"]
 layout_mode = 2
@@ -279,7 +280,7 @@ show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement2"]
 position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+texture = ExtResource("22_bkdrs")
 
 [node name="achievement3" type="HBoxContainer" parent="ScrollContainer/achievementList"]
 layout_mode = 2
@@ -305,7 +306,7 @@ show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement3"]
 position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+texture = ExtResource("22_bkdrs")
 
 [node name="achievement4" type="HBoxContainer" parent="ScrollContainer/achievementList"]
 layout_mode = 2
@@ -331,7 +332,7 @@ show_percentage = false
 
 [node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement4"]
 position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+texture = ExtResource("22_bkdrs")
 
 [node name="Back" type="HBoxContainer" parent="."]
 offset_left = 150.0

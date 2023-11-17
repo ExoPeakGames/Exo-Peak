@@ -15,22 +15,22 @@ func loadAchievementProgress():
 	if $ScrollContainer/achievementList/achievement1/achievementInfo/achievementProg.value == 100:
 		$ScrollContainer/achievementList/achievement1/achievementState.texture = load("res://assets/ui/checkmark.png")
 	else:
-		$ScrollContainer/achievementList/achievement1/achievementState.texture = load("res://assets/ui/xmark.png")
+		$ScrollContainer/achievementList/achievement1/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
 		
 	$ScrollContainer/achievementList/achievement2/achievementInfo/achievementProg.value = 0
 	if $ScrollContainer/achievementList/achievement2/achievementInfo/achievementProg.value == 100:
 		$ScrollContainer/achievementList/achievement2/achievementState.texture = load("res://assets/ui/checkmark.png")
 	else:
-		$ScrollContainer/achievementList/achievement2/achievementState.texture = load("res://assets/ui/xmark.png")
+		$ScrollContainer/achievementList/achievement2/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
 		
 	$ScrollContainer/achievementList/achievement3/achievementInfo/achievementProg.value = 0
 	if $ScrollContainer/achievementList/achievement3/achievementInfo/achievementProg.value == 100:
 		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/checkmark.png")
 	else:
-		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/xmark.png")
+		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
 		
 	$ScrollContainer/achievementList/achievement4/achievementInfo/achievementProg.value = 0
 	if $ScrollContainer/achievementList/achievement4/achievementInfo/achievementProg.value == 100:
 		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/checkmark.png")
 	else:
-		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/xmark.png")
+		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
