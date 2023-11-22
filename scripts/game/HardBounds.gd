@@ -23,4 +23,4 @@ func update_bounds():
 
 func _draw():
 	if Engine.is_editor_hint():
-		draw_rect(Rect2i(rect.position, rect.size+Vector2i.ONE), Color.CORNFLOWER_BLUE, false)
+		draw_rect(Rect2i(rect.position, rect.size), Color.CORNFLOWER_BLUE, false)

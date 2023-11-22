@@ -69,6 +69,7 @@ shape = SubResource("RectangleShape2D_7suk3")
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Flippable"]
+position = Vector2(0, -0.5)
 sprite_frames = SubResource("SpriteFrames_op8hv")
 animation = &"walking"
 script = ExtResource("3_c5cyj")
