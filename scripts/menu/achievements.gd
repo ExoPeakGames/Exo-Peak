@@ -11,26 +11,39 @@ func _on_return_button_pressed():
 		MenuButtons._on_return_button_pressed()
 
 func loadAchievementProgress():
-	$ScrollContainer/achievementList/achievement1/achievementInfo/achievementProg.value = 100 # remove hard coding with dynamic updates from player data
-	if $ScrollContainer/achievementList/achievement1/achievementInfo/achievementProg.value == 100:
-		$ScrollContainer/achievementList/achievement1/achievementState.texture = load("res://assets/ui/checkmark.png")
-	else:
-		$ScrollContainer/achievementList/achievement1/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
+	# instantiate paths and control variables
+	var i = 1
+	var scroll_container = $ScrollContainer
+	var margin_container = scroll_container.get_node("MarginContainer")
+	var achievement_list = margin_container.get_node("achievementList")
+	
+	# Get our achievements list
+	var achievement_manager = AchievementManager.instance
+	var achievements = achievement_manager.achievementList
+	
+	#iterate and update
+	for achievement in achievements:
+		# get node and store in variable
+		var achievement_node_path = "achievement" + str(i)
+		var achievement_node = achievement_list.get_node(achievement_node_path)
+		var achievement_state  = achievement_node.get_node("achievementState")
+		var achievement_info = achievement_node.get_node("achievementInfo")
 		
-	$ScrollContainer/achievementList/achievement2/achievementInfo/achievementProg.value = 0
-	if $ScrollContainer/achievementList/achievement2/achievementInfo/achievementProg.value == 100:
-		$ScrollContainer/achievementList/achievement2/achievementState.texture = load("res://assets/ui/checkmark.png")
-	else:
-		$ScrollContainer/achievementList/achievement2/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
+		# get the subnodes of achievementInfo to modify
+		var achievement_name = achievement_info.get_node("achievementName")
+		var achievement_description = achievement_info.get_node("achievementDesc")
+		var achievement_prog = achievement_info.get_node("achievementProg")
 		
-	$ScrollContainer/achievementList/achievement3/achievementInfo/achievementProg.value = 0
-	if $ScrollContainer/achievementList/achievement3/achievementInfo/achievementProg.value == 100:
-		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/checkmark.png")
-	else:
-		$ScrollContainer/achievementList/achievement3/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
+		# get data from achievements array
+		achievement_name.text = achievements[i-1].title
+		achievement_description.text = achievements[i-1].description
+		achievement_prog.value = achievements[i-1].progress
 		
-	$ScrollContainer/achievementList/achievement4/achievementInfo/achievementProg.value = 0
-	if $ScrollContainer/achievementList/achievement4/achievementInfo/achievementProg.value == 100:
-		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/checkmark.png")
-	else:
-		$ScrollContainer/achievementList/achievement4/achievementState.texture = load("res://assets/ui/checkmark-grey.png")
+		# update completion sprites
+		if achievement_prog.value == achievement_prog.max_value:
+			achievement_state.texture = load("res://assets/ui/checkmark.png")
+		else:
+			achievement_state.texture = load("res://assets/ui/checkmark-grey.png")
+		i += 1
+		
+		

@@ -1,11 +1,14 @@
 extends Node
 
+class_name achievement
+var title : String
+var description : String
+var progress : int
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _init(title: String, description: String, progress: int):
+	self.title = title
+	self.description = description
+	self.progress = progress
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func updateAchievement(value: int):
+	self.progress = self.progress + value
