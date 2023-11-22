@@ -17,7 +17,7 @@ anchors_preset = 0
 [node name="crashlanding" parent="Game" instance=ExtResource("5_ch1iy")]
 
 [node name="HardBounds" parent="Game" instance=ExtResource("1_yt00p")]
-rect = Rect2i(0, 0, 208, 112)
+rect = Rect2i(0, 0, 208, 111)
 
 [node name="Player" parent="Game" instance=ExtResource("1_p6b71")]
 position = Vector2(104, 60)
