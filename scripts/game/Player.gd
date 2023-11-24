@@ -19,7 +19,7 @@ func _ready():
 	set_notify_transform(true)
 func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED and get_position_delta() != Vector2.ZERO:
-		$PlayerCamera.position = Vector2(208,120)-position.posmodv(Vector2(208,120))
+		$PlayerCamera.position = Vector2(208,120)-position.posmodv(Vector2(208,120))-Vector2(208/2,120/2)
 		
 
 func _physics_process(delta):

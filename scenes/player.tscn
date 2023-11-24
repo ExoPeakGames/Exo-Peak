@@ -75,4 +75,3 @@ animation = &"walking"
 script = ExtResource("3_c5cyj")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-enabled = false
