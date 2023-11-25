@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=9 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
+[ext_resource type="PackedScene" uid="uid://cpt3hn4i8jl31" path="res://scenes/enemies/enemy_1.tscn" id="4_p3uxl"]
 [ext_resource type="PackedScene" uid="uid://b775uartmpbot" path="res://scenes/pause_menu.tscn" id="4_t3gyp"]
 [ext_resource type="PackedScene" uid="uid://bt0i7vns3kkx8" path="res://scenes/crashlanding.tscn" id="5_ch1iy"]
 [ext_resource type="PackedScene" uid="uid://cw84bf2fckw7u" path="res://scenes/Settings.tscn" id="5_v236o"]
@@ -21,6 +22,9 @@ rect = Rect2i(0, 0, 208, 112)
 
 [node name="Player" parent="Game" instance=ExtResource("1_p6b71")]
 position = Vector2(104, 60)
+
+[node name="enemy_1" parent="Game" instance=ExtResource("4_p3uxl")]
+position = Vector2(176, 100)
 
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
 visible = false

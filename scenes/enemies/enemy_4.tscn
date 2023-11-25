@@ -1,0 +1,221 @@
+[gd_scene load_steps=24 format=3 uid="uid://cchwhjpduh7u"]
+
+[ext_resource type="Texture2D" uid="uid://8845ba5gv3co" path="res://assets/enemies/enemy10-spritesheet.png" id="1_phhce"]
+[ext_resource type="Script" path="res://scripts/game/enemies/enemy_4.gd" id="1_qsae3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve2l1"]
+atlas = ExtResource("1_phhce")
+region = Rect2(29, 23, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j6w1"]
+atlas = ExtResource("1_phhce")
+region = Rect2(58, 23, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm4wp"]
+atlas = ExtResource("1_phhce")
+region = Rect2(87, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3q47"]
+atlas = ExtResource("1_phhce")
+region = Rect2(116, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjy3m"]
+atlas = ExtResource("1_phhce")
+region = Rect2(145, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfqv8"]
+atlas = ExtResource("1_phhce")
+region = Rect2(0, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlsx3"]
+atlas = ExtResource("1_phhce")
+region = Rect2(145, 46, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjjxd"]
+atlas = ExtResource("1_phhce")
+region = Rect2(0, 69, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhmuj"]
+atlas = ExtResource("1_phhce")
+region = Rect2(29, 69, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uigbg"]
+atlas = ExtResource("1_phhce")
+region = Rect2(58, 69, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldsyo"]
+atlas = ExtResource("1_phhce")
+region = Rect2(29, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vnxm"]
+atlas = ExtResource("1_phhce")
+region = Rect2(58, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8vuq"]
+atlas = ExtResource("1_phhce")
+region = Rect2(87, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p476r"]
+atlas = ExtResource("1_phhce")
+region = Rect2(116, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4dyy"]
+atlas = ExtResource("1_phhce")
+region = Rect2(145, 0, 27, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kie8v"]
+atlas = ExtResource("1_phhce")
+region = Rect2(145, 46, 27, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vhty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve2l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j6w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm4wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3q47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjy3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfqv8")
+}],
+"loop": true,
+"name": &"bite",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlsx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjjxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhmuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uigbg")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfqv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldsyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vnxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldsyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8vuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p476r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4dyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p476r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8vuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldsyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vnxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldsyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8vuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p476r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kie8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p476r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojjw2"]
+size = Vector2(21.9516, 23.1332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc708"]
+size = Vector2(83.6419, 26.7168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy5ng"]
+size = Vector2(17.2, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73np8"]
+bg_color = Color(0.54902, 0.0313726, 0, 1)
+
+[node name="enemy_4" type="CharacterBody2D"]
+script = ExtResource("1_qsae3")
+
+[node name="enemy" type="AnimatedSprite2D" parent="."]
+position = Vector2(177, 16)
+sprite_frames = SubResource("SpriteFrames_5vhty")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.146821, 2.165)
+rotation = -3.14159
+scale = Vector2(0.33248, -0.541779)
+shape = SubResource("RectangleShape2D_ojjw2")
+
+[node name="detection_area" type="Area2D" parent="."]
+scale = Vector2(1.8, 0.6)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+scale = Vector2(0.86623, 1.03696)
+shape = SubResource("RectangleShape2D_lc708")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1.75, 0)
+scale = Vector2(1.25, 1.25)
+shape = SubResource("RectangleShape2D_hy5ng")
+
+[node name="health_bar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = -8.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/fill = SubResource("StyleBoxFlat_73np8")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="cooldown_timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
