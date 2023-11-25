@@ -61,6 +61,7 @@ func _physics_process(delta):
 		pass  # play sound effect
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		AchievementManager.instance.achievementList[3].updateAchievement(1)
 		velocity.y = JUMP_SPEED
 		jumping = true
 		# play sound effect
