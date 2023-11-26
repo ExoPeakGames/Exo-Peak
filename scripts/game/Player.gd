@@ -62,4 +62,12 @@ func _on_reload():
 
 func take_damage(amount):
 	health -= amount
+	$UI/HealthBar.frame = health
+	print(amount)
+	if (health <=  0):
+		# play death animation
+		# game over
+		print("game over")
+		queue_free()
+		MenuButtons._on_return_button_pressed()
 	# play sound effect
