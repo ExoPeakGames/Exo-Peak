@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var damage_dealt = 50
+@export var damage_dealt = 1
 @export var health: float = 25
 @export var SPEED : float = 125
 @export var FALL_STRENGTH : float = 500
