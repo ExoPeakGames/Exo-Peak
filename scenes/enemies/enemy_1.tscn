@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cpt3hn4i8jl31"]
+[gd_scene load_steps=25 format=3 uid="uid://cpt3hn4i8jl31"]
 
 [ext_resource type="Script" path="res://scripts/game/enemies/enemy_1.gd" id="1_x6umn"]
 [ext_resource type="Texture2D" uid="uid://uccfnoj8t0i2" path="res://assets/enemies/enemy3-spritesheet.png" id="2_rx754"]
+[ext_resource type="Script" path="res://classes/HurtBox.gd" id="3_s7m0d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3o82"]
 atlas = ExtResource("2_rx754")
@@ -186,16 +187,18 @@ shape = SubResource("RectangleShape2D_vyjsb")
 
 [node name="detection_area" type="Area2D" parent="."]
 scale = Vector2(1.8, 0.6)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 scale = Vector2(0.86623, 1.03696)
 shape = SubResource("RectangleShape2D_7l67i")
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_s7m0d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(1.75, 0)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_hym0o")
@@ -207,15 +210,16 @@ offset_right = 21.0
 offset_bottom = -8.0
 scale = Vector2(0.5, 0.5)
 theme_override_styles/fill = SubResource("StyleBoxFlat_u8ais")
+max_value = 5.0
 step = 1.0
-value = 100.0
+value = 5.0
 show_percentage = false
 
 [node name="cooldown_timer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
 
-[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_shape_entered" from="detection_area" to="." method="_on_detection_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="detection_area" to="." method="_on_detection_area_body_shape_exited"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="hurtbox" to="." method="_on_hitbox_body_exited"]

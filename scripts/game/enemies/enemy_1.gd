@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var damage_dealt = 1
-@export var health: float = 25
+@export var health: float = 3
 @export var SPEED : float = 125
 @export var FALL_STRENGTH : float = 500
 @export var GRAVITY : float = 375
@@ -34,20 +34,24 @@ func _physics_process(delta):
 	set_velocity(velocity)
 	move_and_slide()
 
-func _on_detection_area_body_entered(body):
+func _on_detection_area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body == null:
+		return
 	if body.is_in_group("player"):
 		player = body
 		follow_player = true
 
-func _on_detection_area_body_exited(body):
+func _on_detection_area_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	if body == null:
+		return
 	if body.is_in_group("player"):
-		player = null
 		follow_player = false
+		player = null
 
-func hit(damage : int):
-	health -= damage
+func take_damage(amount : int):
+	health -= amount
 	$health_bar.value = health
-	if (health <=  0):
+	if (health <= 0):
 		$enemy.play("death")
 		queue_free()
 
@@ -67,3 +71,4 @@ func attack():
 		print("attack")
 		player.take_damage(damage_dealt)
 		$cooldown_timer.start()
+	

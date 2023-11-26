@@ -12,8 +12,8 @@ var ammo = 6
 @export_range(0, 1.0) var ACCELERATION : float = 0.5
 @export_range(0, 1.0) var FRICTION : float = 0.5
 
-
 @onready var was_on_floor = is_on_floor()
+@onready var Bullet = preload("res://scenes/bullet.tscn")
 
 func _ready():
 	set_notify_transform(true)
@@ -21,7 +21,7 @@ func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED and get_position_delta() != Vector2.ZERO:
 		#warning-ignore:integer_division
 		$PlayerCamera.position = Vector2(208,120)-position.posmodv(Vector2(208,120))-Vector2(104,60)
-		
+	
 
 func _physics_process(delta):
 	var direction : float = 0
@@ -55,6 +55,10 @@ func _physics_process(delta):
 	elif not Input.is_action_pressed("jump") or is_on_floor():
 		jumping = false
 	
+	if Input.is_action_pressed("attack") and $cooldown_timer.is_stopped(): # and PlayerData.has_gun:
+		shoot()
+		$cooldown_timer.start()
+	
 	was_on_floor = is_on_floor()
 
 
@@ -73,3 +77,11 @@ func take_damage(amount):
 		queue_free()
 		MenuButtons._on_return_button_pressed()
 	# play sound effect
+
+
+func shoot():
+	var b = Bullet.instantiate()
+	b.init(Vector2($Flippable.scale.x, 0))
+	add_sibling(b)
+	#b.direction = Vector2($Flippable.scale.x, 0)
+	b.global_position = $Flippable/Muzzle.global_position

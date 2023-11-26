@@ -151,12 +151,16 @@ animation = &"walking"
 script = ExtResource("3_c5cyj")
 
 [node name="HurtBox" type="Area2D" parent="Flippable"]
+collision_mask = 8
 script = ExtResource("4_i7kle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HurtBox"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_j3fgh")
 debug_color = Color(0.223529, 0.701961, 0.211765, 0.419608)
+
+[node name="Muzzle" type="Marker2D" parent="Flippable"]
+position = Vector2(8, 0)
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 
@@ -168,3 +172,5 @@ frame = 8
 offset = Vector2(104, 60)
 
 [node name="cooldown_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
