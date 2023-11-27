@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw84bf2fckw7u"]
+[gd_scene load_steps=4 format=3 uid="uid://cw84bf2fckw7u"]
 
 [ext_resource type="Script" path="res://scripts/menu/settings.gd" id="1_aqbxm"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="3_kfjjf"]
+[ext_resource type="PackedScene" uid="uid://bn2gfllt3f68m" path="res://scenes/volume_slider.tscn" id="3_pwrko"]
 
 [node name="Settings" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_aqbxm")
 
 [node name="Settings_Background" type="Panel" parent="."]
@@ -81,43 +83,24 @@ offset_top = 34.0
 offset_right = 192.0
 offset_bottom = 74.0
 
-[node name="slider" type="HSlider" parent="Settings_Background/Sliders"]
-custom_minimum_size = Vector2(54, 13)
+[node name="volumeSlider" parent="Settings_Background/Sliders" instance=ExtResource("3_pwrko")]
 layout_mode = 2
-theme = ExtResource("3_kfjjf")
+bus_name = "Master"
 
-[node name="label" type="Label" parent="Settings_Background/Sliders/slider"]
+[node name="volumeSlider2" parent="Settings_Background/Sliders" instance=ExtResource("3_pwrko")]
 layout_mode = 2
-offset_left = -38.0
-offset_top = 3.0
-offset_right = -14.0
-offset_bottom = 11.0
-scale = Vector2(1.32, 1)
-theme = ExtResource("3_kfjjf")
-theme_type_variation = &"small_text"
-text = "slider"
+bus_name = "Music"
 
-[node name="slider2" type="HSlider" parent="Settings_Background/Sliders"]
-custom_minimum_size = Vector2(54, 13)
+[node name="volumeSlider3" parent="Settings_Background/Sliders" instance=ExtResource("3_pwrko")]
 layout_mode = 2
-
-[node name="label" type="Label" parent="Settings_Background/Sliders/slider2"]
-layout_mode = 0
-offset_left = -38.0
-offset_top = 3.0
-offset_right = -14.0
-offset_bottom = 11.0
-scale = Vector2(1.32, 1)
-theme = ExtResource("3_kfjjf")
-theme_type_variation = &"small_text"
-text = "slider"
+bus_name = "UI"
 
 [node name="Check Button" type="VBoxContainer" parent="Settings_Background"]
 layout_mode = 2
-offset_left = 87.0
-offset_top = 73.0
-offset_right = 111.0
-offset_bottom = 125.0
+offset_left = 72.0
+offset_top = 81.0
+offset_right = 96.0
+offset_bottom = 133.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_kfjjf")
 

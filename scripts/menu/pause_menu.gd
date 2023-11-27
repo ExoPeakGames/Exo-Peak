@@ -8,11 +8,14 @@ func _ready():
 		hide()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("pause") && !MenuButtons.disableKeyboard:
-		if paused:
-			unpause()
+	if Input.is_action_just_pressed("pause"):
+		if $"../Settings".visible || $"../Achievements".visible:
+			pass
 		else:
-			pause()
+			if paused:
+				unpause()
+			else:
+				pause()
 
 func pause():
 	get_tree().paused = true
@@ -32,8 +35,8 @@ func _on_return_button_pressed():
 
 func _on_achievements_button_pressed():
 	MenuButtons.pmenuButton = true
-	$Achievements.show()
+	$"../Achievements".show()
 
 func _on_settings_button_pressed():
-	MenuButtons.pmenuButton = true	
-	$Settings.show()
+	MenuButtons.pmenuButton = true
+	$"../Settings".show()
