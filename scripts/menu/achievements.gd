@@ -1,8 +1,7 @@
 extends CanvasLayer
 
 func _ready():
-	loadAchievementProgress()
-	pass
+	load_achievement_progress()
 
 func _on_return_button_pressed():
 	if MenuButtons.pmenuButton:
@@ -10,7 +9,7 @@ func _on_return_button_pressed():
 	else:
 		MenuButtons._on_return_button_pressed()
 
-func loadAchievementProgress():
+func load_achievement_progress():
 	# instantiate paths and control variables
 	var i = 1
 	var scroll_container = $ScrollContainer
@@ -42,4 +41,6 @@ func loadAchievementProgress():
 			achievement_state.texture = load("res://assets/ui/checkmark-grey.png")
 		i += 1
 		
-		
+func _on_visibility_changed():
+	if visible:
+		load_achievement_progress()
