@@ -43,6 +43,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s4e5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4f2cc"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ot47a"]
 color = Color(0.247059, 0.247059, 0.247059, 1)
 
@@ -72,9 +78,13 @@ texture = ExtResource("10_l0xxj")
 bg_color = Color(0.207843, 0.631373, 0.92549, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3cyl"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 texture = ExtResource("11_lv45n")
 texture_margin_left = 2.0
-texture_margin_top = 3.0
+texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 3.0
 
@@ -100,8 +110,6 @@ texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5oddm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofoin"]
 bg_color = Color(0.605469, 0.605469, 0.605469, 1)
@@ -165,6 +173,7 @@ CheckButton/styles/hover = SubResource("StyleBoxFlat_f55e1")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_oum5j")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_0s6qd")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_6s4e5")
+HBoxContainer/styles/background = SubResource("StyleBoxFlat_4f2cc")
 HSlider/icons/grabber = ExtResource("6_fgbc6")
 HSlider/icons/grabber_disabled = ExtResource("6_fgbc6")
 HSlider/icons/grabber_highlight = ExtResource("6_fgbc6")
@@ -188,7 +197,6 @@ VScrollBar/styles/grabber = SubResource("StyleBoxTexture_x3cyl")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_mos74")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_5mf7h")
 VScrollBar/styles/scroll = SubResource("StyleBoxTexture_nsw1r")
-VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_5oddm")
 VSlider/constants/center_grabber = 0
 VSlider/icons/grabber = ExtResource("11_kopj7")
 VSlider/icons/grabber_disabled = ExtResource("11_kopj7")

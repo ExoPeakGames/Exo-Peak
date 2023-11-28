@@ -1,10 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://d4glxsiot3fyp"]
+[gd_scene load_steps=55 format=3 uid="uid://d4glxsiot3fyp"]
 
 [ext_resource type="Script" path="res://scripts/menu/achievements.gd" id="1_pum6e"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="2_7daw6"]
 [ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="2_ci7m8"]
 [ext_resource type="Texture2D" uid="uid://byqf844qptael" path="res://assets/ui/buttons/button_pressed.png" id="3_0ylwv"]
-[ext_resource type="Texture2D" uid="uid://kddg1g301lti" path="res://assets/ui/xmark.png" id="4_4jtj7"]
+[ext_resource type="Texture2D" uid="uid://bmetkrbuwlbrd" path="res://assets/ui/achievement_panel_grey.png" id="4_qinpb"]
 [ext_resource type="Texture2D" uid="uid://blmdoh6guaodf" path="res://assets/ui/buttons/button.png" id="4_x23rd"]
 [ext_resource type="Texture2D" uid="uid://82rc7kufaup8" path="res://assets/ui/buttons/toggle_on.png" id="5_qomdl"]
 [ext_resource type="Texture2D" uid="uid://bynsnbq0lkcus" path="res://assets/ui/buttons/toggle_off.png" id="6_0sklj"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dbhkg655atdpi" path="res://assets/ui/buttons/resume_button_pressed.png" id="19_qtyre"]
 [ext_resource type="Theme" uid="uid://d1m0coh2y5kun" path="res://assets/ui/achievements_theme.tres" id="20_rdx2i"]
 [ext_resource type="Texture2D" uid="uid://txoq5thbryec" path="res://assets/ui/buttons/resume_button.png" id="20_spo36"]
+[ext_resource type="Texture2D" uid="uid://bf2e6xyqv7b50" path="res://assets/ui/checkmark-grey.png" id="22_bkdrs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjhny"]
 texture = ExtResource("3_0ylwv")
@@ -185,7 +186,7 @@ small_text/base_type = &"Label"
 small_text/font_sizes/font_size = 5
 small_text/fonts/font = ExtResource("2_ci7m8")
 
-[node name="Achievements" type="CanvasLayer"]
+[node name="achievements" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_pum6e")
 metadata/_edit_lock_ = true
@@ -216,124 +217,160 @@ text = "Achievements"
 vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 8.0
-offset_top = 28.0
+offset_left = 7.0
+offset_top = 27.0
 offset_right = 201.0
-offset_bottom = 98.0
+offset_bottom = 99.0
+size_flags_vertical = 3
 theme = ExtResource("20_rdx2i")
 
-[node name="achievementList" type="VBoxContainer" parent="ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="achievementList" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
 custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("20_rdx2i")
 
-[node name="achievement1" type="HBoxContainer" parent="ScrollContainer/achievementList"]
+[node name="achievement1" type="HBoxContainer" parent="ScrollContainer/MarginContainer/achievementList"]
 layout_mode = 2
+theme = ExtResource("20_rdx2i")
 
-[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement1"]
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement1"]
+position = Vector2(-1, 1)
+scale = Vector2(1.02222, 0.97619)
+texture = ExtResource("4_qinpb")
+centered = false
+
+[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/MarginContainer/achievementList/achievement1"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("20_rdx2i")
 
-[node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement1/achievementInfo"]
+[node name="achievementName" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement1/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 text = "Crash Landing on Who?"
 
-[node name="achievementDesc" type="Label" parent="ScrollContainer/achievementList/achievement1/achievementInfo"]
+[node name="achievementDesc" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement1/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 text = "Beat Stage 1"
 
-[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/achievementList/achievement1/achievementInfo"]
+[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/MarginContainer/achievementList/achievement1/achievementInfo"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_sgaq5")
+max_value = 1.0
+show_percentage = false
+
+[node name="achievementState" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement1"]
+position = Vector2(163, 21)
+texture = ExtResource("22_bkdrs")
+
+[node name="achievement2" type="HBoxContainer" parent="ScrollContainer/MarginContainer/achievementList"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement2"]
+position = Vector2(91.5, 21)
+scale = Vector2(1.01667, 1)
+texture = ExtResource("4_qinpb")
+
+[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/MarginContainer/achievementList/achievement2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("20_rdx2i")
+
+[node name="achievementName" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement2/achievementInfo"]
+layout_mode = 2
+theme = SubResource("Theme_sgaq5")
+text = "*Funny Stage 2*"
+
+[node name="achievementDesc" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement2/achievementInfo"]
+layout_mode = 2
+theme = SubResource("Theme_sgaq5")
+text = "Beat Stage 2"
+
+[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/MarginContainer/achievementList/achievement2/achievementInfo"]
 layout_mode = 2
 size_flags_vertical = 1
 theme = SubResource("Theme_sgaq5")
 show_percentage = false
 
-[node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement1"]
-position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+[node name="achievementState" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement2"]
+position = Vector2(163, 18)
+texture = ExtResource("22_bkdrs")
 
-[node name="achievement2" type="HBoxContainer" parent="ScrollContainer/achievementList"]
+[node name="achievement3" type="HBoxContainer" parent="ScrollContainer/MarginContainer/achievementList"]
 layout_mode = 2
 
-[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("20_rdx2i")
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement3"]
+position = Vector2(91.5, 21)
+scale = Vector2(1.01667, 1)
+texture = ExtResource("4_qinpb")
 
-[node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement2/achievementInfo"]
-layout_mode = 2
-theme = SubResource("Theme_sgaq5")
-text = "*Funny Stage 2*"
-
-[node name="achievementDesc" type="Label" parent="ScrollContainer/achievementList/achievement2/achievementInfo"]
-layout_mode = 2
-theme = SubResource("Theme_sgaq5")
-text = "Beat Stage 2"
-
-[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/achievementList/achievement2/achievementInfo"]
-layout_mode = 2
-theme = SubResource("Theme_sgaq5")
-show_percentage = false
-
-[node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement2"]
-position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
-
-[node name="achievement3" type="HBoxContainer" parent="ScrollContainer/achievementList"]
-layout_mode = 2
-
-[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement3"]
+[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/MarginContainer/achievementList/achievement3"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement3/achievementInfo"]
+[node name="achievementName" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement3/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 text = "*Funny Stage 3*"
 
-[node name="achievementDesc" type="Label" parent="ScrollContainer/achievementList/achievement3/achievementInfo"]
+[node name="achievementDesc" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement3/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 text = "Beat Stage 3"
 
-[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/achievementList/achievement3/achievementInfo"]
+[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/MarginContainer/achievementList/achievement3/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 show_percentage = false
 
-[node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement3"]
-position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+[node name="achievementState" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement3"]
+position = Vector2(163, 18)
+texture = ExtResource("22_bkdrs")
 
-[node name="achievement4" type="HBoxContainer" parent="ScrollContainer/achievementList"]
+[node name="achievement4" type="HBoxContainer" parent="ScrollContainer/MarginContainer/achievementList"]
 layout_mode = 2
 
-[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/achievementList/achievement4"]
+[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement4"]
+position = Vector2(91.5, 21)
+scale = Vector2(1.01667, 1)
+texture = ExtResource("4_qinpb")
+
+[node name="achievementInfo" type="VBoxContainer" parent="ScrollContainer/MarginContainer/achievementList/achievement4"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="achievementName" type="Label" parent="ScrollContainer/achievementList/achievement4/achievementInfo"]
+[node name="achievementName" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement4/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 text = "You Jump Good!"
 
-[node name="achievementDesc" type="Label" parent="ScrollContainer/achievementList/achievement4/achievementInfo"]
+[node name="achievementDesc" type="Label" parent="ScrollContainer/MarginContainer/achievementList/achievement4/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
 text = "Jump 10 Times"
 
-[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/achievementList/achievement4/achievementInfo"]
+[node name="achievementProg" type="ProgressBar" parent="ScrollContainer/MarginContainer/achievementList/achievement4/achievementInfo"]
 layout_mode = 2
 theme = SubResource("Theme_sgaq5")
+max_value = 10.0
 show_percentage = false
 
-[node name="achievementState" type="Sprite2D" parent="ScrollContainer/achievementList/achievement4"]
-position = Vector2(167, 18)
-texture = ExtResource("4_4jtj7")
+[node name="achievementState" type="Sprite2D" parent="ScrollContainer/MarginContainer/achievementList/achievement4"]
+position = Vector2(163, 18)
+texture = ExtResource("22_bkdrs")
 
 [node name="Back" type="HBoxContainer" parent="."]
 offset_left = 150.0
