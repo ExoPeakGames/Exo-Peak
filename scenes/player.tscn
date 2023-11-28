@@ -1,56 +1,176 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqctc0dtuuhkj"]
+[gd_scene load_steps=24 format=3 uid="uid://dqctc0dtuuhkj"]
 
 [ext_resource type="Script" path="res://scripts/game/Player.gd" id="1_6rdca"]
-[ext_resource type="PackedScene" uid="uid://3ri8657m6tsy" path="res://scenes/bullet.tscn" id="2_6ts0k"]
-[ext_resource type="Texture2D" uid="uid://ce1quf0dy4pq0" path="res://icon.svg" id="2_oc7tq"]
+[ext_resource type="Texture2D" uid="uid://bviop0mwsfnva" path="res://assets/player/player_walk.png" id="2_qu3cj"]
+[ext_resource type="Script" path="res://scripts/PlayerAnimations.gd" id="3_c5cyj"]
+[ext_resource type="Script" path="res://classes/HurtBox.gd" id="4_i7kle"]
+[ext_resource type="Texture2D" uid="uid://bwlp68eu7ih42" path="res://assets/player/player_health.png" id="5_4q3oj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7suk3"]
+size = Vector2(7, 15)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7t5o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5laud"]
+atlas = ExtResource("2_qu3cj")
+region = Rect2(0, 0, 7, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5at6r"]
-bg_color = Color(0.54902, 0.0313726, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwboy"]
+atlas = ExtResource("2_qu3cj")
+region = Rect2(14, 0, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eldc1"]
+atlas = ExtResource("2_qu3cj")
+region = Rect2(0, 0, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ujmq"]
+atlas = ExtResource("2_qu3cj")
+region = Rect2(7, 0, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d5ex"]
+atlas = ExtResource("2_qu3cj")
+region = Rect2(14, 0, 7, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op8hv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5laud")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwboy")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eldc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ujmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d5ex")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3fgh"]
+size = Vector2(5, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdbf5"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(1664, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oex5"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(1456, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73xrr"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(1248, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8frc"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(1040, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ta55"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(832, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsybr"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(624, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgvdn"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(416, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xewcc"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(208, 0, 208, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dnj3"]
+atlas = ExtResource("5_4q3oj")
+region = Rect2(0, 0, 208, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p6sj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdbf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oex5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73xrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8frc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ta55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsybr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgvdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xewcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dnj3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 3
 script = ExtResource("1_6rdca")
-bullet = ExtResource("2_6ts0k")
-
-[node name="PlayerCamera" type="Camera2D" parent="."]
-enabled = false
-
-[node name="player" type="Sprite2D" parent="."]
-position = Vector2(3.8743e-07, 3.8743e-07)
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("2_oc7tq")
-
-[node name="muzzle" type="Marker2D" parent="player"]
-position = Vector2(64, -2.47955e-06)
-scale = Vector2(6.4, 6.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7suk3")
 
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="Flippable"]
+position = Vector2(0, -0.5)
+sprite_frames = SubResource("SpriteFrames_op8hv")
+animation = &"walking"
+script = ExtResource("3_c5cyj")
+
+[node name="HurtBox" type="Area2D" parent="Flippable"]
+collision_mask = 8
+script = ExtResource("4_i7kle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HurtBox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_j3fgh")
+debug_color = Color(0.223529, 0.701961, 0.211765, 0.419608)
+
+[node name="Muzzle" type="Marker2D" parent="Flippable"]
+position = Vector2(8, 0)
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="AnimatedSprite2D" parent="UI"]
+sprite_frames = SubResource("SpriteFrames_7p6sj")
+frame = 8
+offset = Vector2(104, 60)
+
 [node name="cooldown_timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-
-[node name="hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-scale = Vector2(1.25, 1.25)
-shape = SubResource("RectangleShape2D_y7t5o")
-
-[node name="health_bar" type="ProgressBar" parent="."]
-offset_left = -7.375
-offset_top = -13.875
-offset_right = 20.625
-offset_bottom = -9.875
-scale = Vector2(0.5, 0.5)
-theme_override_styles/fill = SubResource("StyleBoxFlat_5at6r")
-step = 1.0
-value = 100.0
-show_percentage = false
-
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="hitbox" to="." method="_on_hitbox_body_exited"]

@@ -385,4 +385,5 @@ theme = ExtResource("2_7daw6")
 theme_type_variation = &"achievement_button"
 text = "Back"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Back/returnButton" to="." method="_on_return_button_pressed"]
