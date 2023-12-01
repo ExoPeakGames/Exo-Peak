@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=11 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bt0i7vns3kkx8" path="res://scenes/crashlanding.tscn" id="5_ch1iy"]
 [ext_resource type="PackedScene" uid="uid://cw84bf2fckw7u" path="res://scenes/Settings.tscn" id="5_v236o"]
 [ext_resource type="PackedScene" uid="uid://d4glxsiot3fyp" path="res://scenes/Achievements.tscn" id="6_emgeo"]
+[ext_resource type="PackedScene" uid="uid://b4x333a6irhn5" path="res://scenes/enemies/enemy_5.tscn" id="6_f3i2l"]
 [ext_resource type="PackedScene" uid="uid://cbt4m7tqdlktc" path="res://scenes/forest.tscn" id="8_sxco7"]
 [ext_resource type="AudioStream" uid="uid://csv6ohi5a7v40" path="res://assets/audio/music/Stage1Track.wav" id="9_4cwh2"]
 
@@ -28,7 +29,10 @@ position = Vector2(208, -96)
 position = Vector2(104, 60)
 
 [node name="enemy_1" parent="Game" instance=ExtResource("4_p3uxl")]
-position = Vector2(176, 100)
+position = Vector2(325, 45)
+
+[node name="enemy_5" parent="Game" instance=ExtResource("6_f3i2l")]
+position = Vector2(397, 82)
 
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
 visible = false

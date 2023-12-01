@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var damage_dealt = 1
@@ -5,26 +6,35 @@ extends CharacterBody2D
 @export var SPEED : float = 125
 @export var FALL_STRENGTH : float = 500
 @export var GRAVITY : float = 375
+@export var can_bite : bool 
+@export var immobile : bool
 @export_range(0, 1.0) var ACCELERATION : float = 0.5
 @export_range(0, 1.0) var FRICTION : float = 0.5
+var alive : bool = true
 var follow_player = false
 var player = null
-var player_in_range = false
+var in_range
+var face_left : bool
 
+func _init():
+	scale.x = -1
+	face_left = true
 
 func _physics_process(delta):
-	if follow_player:
-		position += (player.position - position)/SPEED
-		$enemy.play("walk")
+	if follow_player and alive:
+		if not immobile:
+			position += (player.position - position)/SPEED
 		if (player.position.x - position.x) < 0:
-			$enemy.flip_h = false
+			if not face_left:
+				$Flippable/enemy.flip_left()
 		else:
-			$enemy.flip_h = true
-	else:
-		$enemy.play("idle")
+			if face_left:
+				$Flippable/enemy.flip_right()
 	
-	if player_in_range:
+	if in_range or (is_in_group("explosive") and not alive):
 		attack()
+	else:
+		$Flippable/enemy.attack = false
 	
 	var grav = GRAVITY
 	if (velocity.y >= 0):
@@ -47,28 +57,21 @@ func _on_detection_area_body_shape_exited(body_rid, body, body_shape_index, loca
 	if body.is_in_group("player"):
 		follow_player = false
 		player = null
+		#$Flippable/enemy.flip_right()
 
 func take_damage(amount : int):
 	health -= amount
 	$health_bar.value = health
 	if (health <= 0):
-		$enemy.play("death")
-		queue_free()
-
-func _on_hitbox_body_entered(body):
-	if body.is_in_group("player"):
-		player = body
-		player_in_range = true
-
-func _on_hitbox_body_exited(body):
-	if body.is_in_group("player"):
-		player = null
-		player_in_range = false
+		alive = false
 
 func attack():
-	if $cooldown_timer.is_stopped():
-		$enemy.play("bite")
-		print("attack")
-		player.take_damage(damage_dealt)
-		$cooldown_timer.start()
-	
+	if is_in_group("explosive"):
+		alive = false
+		await $Flippable/enemy.animation_finished
+		$Flippable/hitbox.deal_damage()
+		return
+	if $Flippable/hitbox/cooldown_timer.is_stopped() and in_range:
+		$Flippable/hitbox.deal_damage()
+		$Flippable/enemy.attack = true
+		$Flippable/hitbox/cooldown_timer.start()

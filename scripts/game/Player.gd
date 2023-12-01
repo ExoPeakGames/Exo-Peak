@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var health = 8
-
 var jumping = false
 var ammo = 6
 
@@ -17,6 +16,7 @@ var ammo = 6
 
 func _ready():
 	set_notify_transform(true)
+
 func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED and get_position_delta() != Vector2.ZERO:
 		#warning-ignore:integer_division
