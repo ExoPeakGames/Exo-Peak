@@ -1,7 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://dwoymt4o3cfyb"]
+[gd_scene load_steps=29 format=3 uid="uid://dwoymt4o3cfyb"]
 
-[ext_resource type="Script" path="res://scripts/game/enemies/enemy_7.gd" id="1_431uq"]
+[ext_resource type="Script" path="res://classes/enemy.gd" id="1_3budx"]
 [ext_resource type="Texture2D" uid="uid://bwe0t8ak4mvor" path="res://assets/enemies/enemy14-spritesheet.png" id="1_jn2c5"]
+[ext_resource type="Script" path="res://classes/HurtBox.gd" id="3_4v5d0"]
+[ext_resource type="Script" path="res://scripts/game/enemy_animation.gd" id="3_d8aye"]
+[ext_resource type="Script" path="res://classes/HitBox.gd" id="5_743w3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr430"]
+size = Vector2(21.9516, 23.1332)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btxh1"]
 atlas = ExtResource("1_jn2c5")
@@ -89,7 +95,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_btxh1")
 }],
-"loop": true,
+"loop": false,
 "name": &" blink",
 "speed": 5.0
 }, {
@@ -112,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ibifm")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 3.0
 }, {
@@ -153,7 +159,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dsf7l")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 3.0
 }, {
@@ -170,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlvgf")
 }],
-"loop": true,
+"loop": false,
 "name": &"wake_up",
 "speed": 5.0
 }, {
@@ -181,30 +187,25 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aacay")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr430"]
-size = Vector2(21.9516, 23.1332)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbv6k"]
-size = Vector2(83.6419, 26.7168)
+size = Vector2(66.1922, 26.7168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ebo"]
+size = Vector2(8, 10.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv8rw"]
-size = Vector2(17.2, 16)
+size = Vector2(9.6, 11.2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3kuq"]
 bg_color = Color(0.54902, 0.0313726, 0, 1)
 
-[node name="enemy_7" type="CharacterBody2D"]
-script = ExtResource("1_431uq")
-
-[node name="enemy" type="AnimatedSprite2D" parent="."]
-position = Vector2(59, 40)
-sprite_frames = SubResource("SpriteFrames_w82jc")
-animation = &"wake_up"
+[node name="enemy_7" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_3budx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.146821, 2.165)
@@ -212,21 +213,48 @@ rotation = -3.14159
 scale = Vector2(0.33248, -0.541779)
 shape = SubResource("RectangleShape2D_vr430")
 
-[node name="detection_area" type="Area2D" parent="."]
-scale = Vector2(1.8, 0.6)
-collision_layer = 2
-collision_mask = 2
+[node name="Flippable" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+[node name="enemy" type="AnimatedSprite2D" parent="Flippable"]
+sprite_frames = SubResource("SpriteFrames_w82jc")
+animation = &"walk"
+script = ExtResource("3_d8aye")
+
+[node name="idle_timer" type="Timer" parent="Flippable/enemy"]
+wait_time = 4.0
+one_shot = true
+
+[node name="detection_area" type="Area2D" parent="Flippable"]
+scale = Vector2(1.8, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/detection_area"]
+position = Vector2(7.55773, 0)
 scale = Vector2(0.86623, 1.03696)
 shape = SubResource("RectangleShape2D_sbv6k")
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hurtbox" type="Area2D" parent="Flippable" groups=["enemy_hurtbox"]]
+collision_layer = 15
+collision_mask = 2
+script = ExtResource("3_4v5d0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(1.75, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/hurtbox"]
+position = Vector2(5.96046e-08, -0.5)
+scale = Vector2(1.25, 1.25)
+shape = SubResource("RectangleShape2D_q7ebo")
+
+[node name="hitbox" type="Area2D" parent="Flippable" groups=["HitBox"]]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("5_743w3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/hitbox"]
+position = Vector2(-2.08616e-07, 1)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_sv8rw")
+
+[node name="cooldown_timer" type="Timer" parent="Flippable/hitbox"]
+wait_time = 0.75
+one_shot = true
 
 [node name="health_bar" type="ProgressBar" parent="."]
 offset_left = -7.0
@@ -235,10 +263,11 @@ offset_right = 21.0
 offset_bottom = -8.0
 scale = Vector2(0.5, 0.5)
 theme_override_styles/fill = SubResource("StyleBoxFlat_d3kuq")
+max_value = 3.0
 step = 1.0
-value = 100.0
+value = 3.0
+fill_mode = 1
 show_percentage = false
 
-[node name="cooldown_timer" type="Timer" parent="."]
-wait_time = 0.75
-one_shot = true
+[connection signal="body_shape_entered" from="Flippable/detection_area" to="." method="_on_detection_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="Flippable/detection_area" to="." method="_on_detection_area_body_shape_exited"]

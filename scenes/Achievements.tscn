@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://82rc7kufaup8" path="res://assets/ui/buttons/toggle_on.png" id="5_qomdl"]
 [ext_resource type="Texture2D" uid="uid://bynsnbq0lkcus" path="res://assets/ui/buttons/toggle_off.png" id="6_0sklj"]
 [ext_resource type="Texture2D" uid="uid://cos32vqpqqvmn" path="res://assets/ui/slider/grabber.png" id="7_cw3an"]
-[ext_resource type="Texture2D" uid="uid://m13iqrlk8o6b" path="res://assets/ui/settings_background.png" id="8_pxawi"]
+[ext_resource type="Texture2D" uid="uid://d2k4xyyey2od7" path="res://assets/ui/settings_background.png" id="8_pxawi"]
 [ext_resource type="Texture2D" uid="uid://dpixffvb8hcsw" path="res://assets/ui/buttons/tab_highlight.png" id="9_e355b"]
 [ext_resource type="Texture2D" uid="uid://dx57p8e4cxw0k" path="res://assets/ui/buttons/tab_selected.png" id="10_k4dig"]
 [ext_resource type="Texture2D" uid="uid://c2dlm5tm5a7po" path="res://assets/ui/buttons/tab.png" id="11_niv1l"]
@@ -204,6 +204,7 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_7daw6")
+theme_type_variation = &"other_bg"
 
 [node name="settings_label" type="Label" parent="Settings_Background"]
 layout_mode = 0
