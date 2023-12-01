@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="1_qjsas"]
 [ext_resource type="Script" path="res://scripts/menu/title_screen.gd" id="2_4d3ss"]
 [ext_resource type="Texture2D" uid="uid://btrwt6vtro3ll" path="res://assets/ui/Menu_Page.png" id="2_qtp67"]
-[ext_resource type="AudioStream" uid="uid://c7anysjhvcppm" path="res://assets/audio/music/main_menu_music.mp3" id="4_mef6x"]
+[ext_resource type="AudioStream" uid="uid://cflfv68ha4tcw" path="res://assets/audio/music/MainMenuTrack.wav" id="4_ho6ju"]
 
 [sub_resource type="Theme" id="Theme_t210o"]
 default_font = ExtResource("1_qjsas")
@@ -70,7 +70,7 @@ text = "Achievements"
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_mef6x")
+stream = ExtResource("4_ho6ju")
 autoplay = true
 bus = &"Music"
 
