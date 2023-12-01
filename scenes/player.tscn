@@ -147,10 +147,9 @@ shape = SubResource("RectangleShape2D_7suk3")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Flippable"]
 position = Vector2(0, -0.5)
 sprite_frames = SubResource("SpriteFrames_op8hv")
-animation = &"walking"
 script = ExtResource("3_c5cyj")
 
-[node name="HurtBox" type="Area2D" parent="Flippable"]
+[node name="HurtBox" type="Area2D" parent="Flippable" groups=["player_hurtbox"]]
 collision_mask = 8
 script = ExtResource("4_i7kle")
 

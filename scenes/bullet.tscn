@@ -19,7 +19,7 @@ texture = ExtResource("1_jawck")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pc8sm")
 
-[node name="BulletHitbox" type="Area2D" parent="."]
+[node name="BulletHitbox" type="Area2D" parent="." groups=["HitBox", "projectile"]]
 script = ExtResource("3_3bcjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitbox"]

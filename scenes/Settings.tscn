@@ -149,6 +149,7 @@ theme = ExtResource("3_kfjjf")
 text = "Key Bindings"
 
 [node name="Back" type="HBoxContainer" parent="Settings_Background"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 6.0
 offset_right = 53.0
