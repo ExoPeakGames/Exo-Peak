@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cpt3hn4i8jl31"]
+[gd_scene load_steps=28 format=3 uid="uid://cpt3hn4i8jl31"]
 
 [ext_resource type="Script" path="res://classes/enemy.gd" id="1_d1tbt"]
 [ext_resource type="Texture2D" uid="uid://bxyxhkvxw2svp" path="res://assets/enemies/enemy3-spritesheet.png" id="2_rx754"]
@@ -56,6 +56,10 @@ region = Rect2(120, 0, 19, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gv6gg"]
 atlas = ExtResource("2_rx754")
 region = Rect2(140, 0, 19, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyem3"]
+atlas = ExtResource("2_rx754")
+region = Rect2(140, 18, 18, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56oig"]
 atlas = ExtResource("2_rx754")
@@ -126,9 +130,12 @@ animations = [{
 "name": &"death",
 "speed": 4.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyem3")
+}],
 "loop": false,
-"name": &"hit",
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -169,7 +176,7 @@ size = Vector2(9.6, 13.2)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8ais"]
 bg_color = Color(0.54902, 0.0313726, 0, 1)
 
-[node name="enemy_1" type="CharacterBody2D" groups=["enemy"]]
+[node name="enemy_1" type="CharacterBody2D" groups=["enemy", "projectile_4"]]
 script = ExtResource("1_d1tbt")
 SPEED = 200.0
 can_bite = true
@@ -185,7 +192,7 @@ shape = SubResource("RectangleShape2D_vyjsb")
 [node name="enemy" type="AnimatedSprite2D" parent="Flippable"]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_tfu4c")
-animation = &"walk"
+animation = &"hurt"
 autoplay = "idle"
 script = ExtResource("3_m68ea")
 
@@ -225,6 +232,9 @@ shape = SubResource("RectangleShape2D_hym0o")
 
 [node name="cooldown_timer" type="Timer" parent="Flippable/hitbox"]
 one_shot = true
+
+[node name="Muzzle" type="Marker2D" parent="Flippable"]
+position = Vector2(7, 0)
 
 [node name="health_bar" type="ProgressBar" parent="."]
 offset_left = -7.0

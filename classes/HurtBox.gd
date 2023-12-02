@@ -14,6 +14,8 @@ func _ready():
 func _on_area_entered(hit):
 	if hit == null or not (hit is HitBox) or (hit.get_parent() == self.get_parent()):
 		return
+	if hit.is_in_group("enemy_projectile") and is_in_group("enemy_hurtbox"):
+		return
 	self.hit = hit
 
 func _process(delta):

@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4x333a6irhn5"]
+[gd_scene load_steps=26 format=3 uid="uid://b4x333a6irhn5"]
 
-[ext_resource type="Texture2D" uid="uid://dp6ysm1de42uq" path="res://assets/enemies/enemy12-spritesheet.png" id="1_7xoe1"]
+[ext_resource type="Texture2D" uid="uid://dkl3wa50vir3t" path="res://assets/enemies/enemy12-spritesheet.png" id="1_7xoe1"]
 [ext_resource type="Script" path="res://classes/enemy.gd" id="1_8rbay"]
 [ext_resource type="Script" path="res://classes/HurtBox.gd" id="3_krbe4"]
 [ext_resource type="Script" path="res://scripts/game/enemy_animation.gd" id="3_w33on"]
@@ -40,6 +40,10 @@ region = Rect2(46, 46, 22, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w68xb"]
 atlas = ExtResource("1_7xoe1")
 region = Rect2(69, 46, 22, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cq3"]
+atlas = ExtResource("1_7xoe1")
+region = Rect2(115, 0, 23, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mikym"]
 atlas = ExtResource("1_7xoe1")
@@ -94,6 +98,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_50cq3")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mikym")
 }, {
 "duration": 1.0,
@@ -113,7 +125,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v8fj4")
 }],
-"loop": true,
+"loop": false,
 "name": &"wake",
 "speed": 5.0
 }]
@@ -146,6 +158,7 @@ shape = SubResource("RectangleShape2D_pglxf")
 [node name="enemy" type="AnimatedSprite2D" parent="Flippable"]
 sprite_frames = SubResource("SpriteFrames_tgyac")
 animation = &"idle"
+autoplay = "idle"
 offset = Vector2(0, -4)
 script = ExtResource("3_w33on")
 
@@ -161,7 +174,7 @@ position = Vector2(0.0577261, 0)
 scale = Vector2(0.86623, 1.03696)
 shape = SubResource("RectangleShape2D_pdv5t")
 
-[node name="hurtbox" type="Area2D" parent="Flippable" groups=["enemy_hurtbx"]]
+[node name="hurtbox" type="Area2D" parent="Flippable" groups=["enemy_hurtbox"]]
 collision_layer = 15
 collision_mask = 2
 script = ExtResource("3_krbe4")
@@ -183,8 +196,10 @@ scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_nwsfg")
 
 [node name="cooldown_timer" type="Timer" parent="Flippable/hitbox"]
-wait_time = 0.75
 one_shot = true
+
+[node name="Muzzle" type="Marker2D" parent="Flippable"]
+position = Vector2(11, 0)
 
 [node name="health_bar" type="ProgressBar" parent="."]
 offset_left = -7.0

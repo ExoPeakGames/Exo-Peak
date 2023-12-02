@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=14 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
@@ -9,7 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://bvnkv435ldrv2" path="res://assets/audio/music/chill_stage_music.mp3" id="6_4crn0"]
 [ext_resource type="PackedScene" uid="uid://d4glxsiot3fyp" path="res://scenes/Achievements.tscn" id="6_emgeo"]
 [ext_resource type="PackedScene" uid="uid://b4x333a6irhn5" path="res://scenes/enemies/enemy_5.tscn" id="6_f3i2l"]
+[ext_resource type="PackedScene" uid="uid://dnhpb5jlhejx8" path="res://scenes/lava_shooter.tscn" id="7_gsk5a"]
+[ext_resource type="PackedScene" uid="uid://pp62gpsguxwb" path="res://scenes/enemies/enemy_9.tscn" id="8_4ytg7"]
 [ext_resource type="PackedScene" uid="uid://cbt4m7tqdlktc" path="res://scenes/forest.tscn" id="8_sxco7"]
+[ext_resource type="PackedScene" uid="uid://dewu0vax2bhia" path="res://scenes/enemies/enemy_10.tscn" id="9_x080f"]
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
@@ -33,6 +36,15 @@ position = Vector2(325, 45)
 
 [node name="enemy_5" parent="Game" instance=ExtResource("6_f3i2l")]
 position = Vector2(397, 82)
+
+[node name="lava_shooter" parent="Game" instance=ExtResource("7_gsk5a")]
+position = Vector2(455, 105)
+
+[node name="enemy_9" parent="Game" instance=ExtResource("8_4ytg7")]
+position = Vector2(196, 96)
+
+[node name="enemy_10" parent="Game" instance=ExtResource("9_x080f")]
+position = Vector2(543, 83)
 
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
 visible = false
