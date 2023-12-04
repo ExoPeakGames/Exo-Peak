@@ -28,6 +28,9 @@ func _on_settings_button_pressed():
 
 func _on_achievements_button_pressed():
 	emit_signal("scene_change", "achievements")
+	
+func _on_keybindings_button_pressed():
+	emit_signal("scene_change", "keybindings")
 
 # to disable ANY input (mouse) during scene transitions
 func inputHandle(handle: String):
