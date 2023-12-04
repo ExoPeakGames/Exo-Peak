@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var damage_dealt = 1
 @export var health: float = 3
 @export var SPEED : float = 125
-@export var FALL_STRENGTH : float = 500
+@export var FALL_STRENGTH : float = 2
 @export var GRAVITY : float = 375
 @export var can_bite : bool 
 @export var immobile : bool
@@ -29,6 +29,9 @@ var projectile
 func _init():
 	scale.x = -1
 	face_left = true
+	
+	collision_layer = 256 # Entity Collider
+	collision_mask = 16 | 32 | 256  # Solid, Platform, Entity Collider
 
 func _physics_process(delta):
 	if in_range or (is_in_group("explosive") and not alive):

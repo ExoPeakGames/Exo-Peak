@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt0i7vns3kkx8"]
-
-[ext_resource type="PackedScene" uid="uid://fyht2xg72t7p" path="res://tiled2/crashlanding.tmx" id="1_akgxq"]
-
-[node name="crashlanding" instance=ExtResource("1_akgxq")]
-
-[node name="Tile Layer 3" parent="." index="1"]
-z_index = 2
