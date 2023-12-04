@@ -12,7 +12,7 @@ var ammo = 6
 @export_range(0, 1.0) var FRICTION : float = 0.5
 
 @onready var was_on_floor = is_on_floor()
-@onready var Bullet = preload("res://scenes/bullet.tscn")
+@onready var Bullet = preload("res://scenes/projectiles/bullet.tscn")
 
 func _ready():
 	set_notify_transform(true)

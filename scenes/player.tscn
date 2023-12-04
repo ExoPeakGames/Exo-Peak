@@ -13,13 +13,13 @@ size = Vector2(7, 15)
 atlas = ExtResource("2_qu3cj")
 region = Rect2(0, 0, 7, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwboy"]
-atlas = ExtResource("2_qu3cj")
-region = Rect2(14, 0, 7, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_eldc1"]
 atlas = ExtResource("2_qu3cj")
 region = Rect2(0, 0, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwboy"]
+atlas = ExtResource("2_qu3cj")
+region = Rect2(14, 0, 7, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ujmq"]
 atlas = ExtResource("2_qu3cj")
@@ -37,6 +37,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eldc1")
+}],
+"loop": true,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -63,7 +71,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3fgh"]
-size = Vector2(5, 14)
+size = Vector2(6, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdbf5"]
 atlas = ExtResource("5_4q3oj")
@@ -137,6 +145,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_6rdca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -147,6 +156,7 @@ shape = SubResource("RectangleShape2D_7suk3")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Flippable"]
 position = Vector2(0, -0.5)
 sprite_frames = SubResource("SpriteFrames_op8hv")
+animation = &"hurt"
 script = ExtResource("3_c5cyj")
 
 [node name="HurtBox" type="Area2D" parent="Flippable" groups=["player_hurtbox"]]
@@ -154,7 +164,6 @@ collision_mask = 8
 script = ExtResource("4_i7kle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HurtBox"]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_j3fgh")
 debug_color = Color(0.223529, 0.701961, 0.211765, 0.419608)
 

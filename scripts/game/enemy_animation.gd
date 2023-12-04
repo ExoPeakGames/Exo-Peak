@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 @onready var parent = get_parent()
-var wait : bool = false
+var hurt : bool = false
 var attack : bool = false
 
 func _process(_delta):
@@ -15,6 +15,11 @@ func _process(_delta):
 		await self.animation_finished
 		attack = false
 	
+	if hurt:
+		hurt_animation()
+		await self.animation_finished
+		hurt = false
+	
 	if owner.follow_player and not owner.immobile:
 		walk_animation()
 	else:
@@ -26,7 +31,7 @@ func attack_animation():
 	if owner.can_bite:
 		play("bite")
 	else:
-		if is_in_group("projectile"):
+		if is_in_group("attack"):
 			play("attack")
 
 func death_animation():
@@ -37,6 +42,9 @@ func walk_animation():
 
 func idle_animation():
 	play("idle")
+
+func hurt_animation():
+	play("hurt")
 
 func idle_flip():
 	if $idle_timer.is_stopped():

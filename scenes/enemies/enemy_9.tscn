@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://pp62gpsguxwb"]
+[gd_scene load_steps=27 format=3 uid="uid://pp62gpsguxwb"]
 
 [ext_resource type="Script" path="res://classes/enemy.gd" id="1_bbpnf"]
 [ext_resource type="Texture2D" uid="uid://dxuay8p78wbfd" path="res://assets/enemies/enemy17-spritesheet.png" id="1_vg6bg"]
@@ -24,6 +24,10 @@ region = Rect2(22, 38, 17, 17)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3tkl"]
 atlas = ExtResource("1_vg6bg")
 region = Rect2(44, 38, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6meeq"]
+atlas = ExtResource("1_vg6bg")
+region = Rect2(66, 38, 17, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t20ud"]
 atlas = ExtResource("1_vg6bg")
@@ -82,6 +86,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6meeq")
+}],
+"loop": false,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -199,8 +211,9 @@ size = Vector2(11.2, 11.2)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahjdp"]
 bg_color = Color(0.54902, 0.0313726, 0, 1)
 
-[node name="enemy_9" type="CharacterBody2D" groups=["enemy"]]
+[node name="enemy_9" type="CharacterBody2D" groups=["enemy", "projectile_1"]]
 script = ExtResource("1_bbpnf")
+projectile_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.14682, 2.165)
@@ -212,7 +225,8 @@ shape = SubResource("RectangleShape2D_3vi02")
 
 [node name="enemy" type="AnimatedSprite2D" parent="Flippable"]
 sprite_frames = SubResource("SpriteFrames_tdspb")
-animation = &"death"
+animation = &"idle"
+autoplay = "idle"
 script = ExtResource("3_fq5lv")
 
 [node name="idle_timer" type="Timer" parent="Flippable/enemy"]
@@ -250,6 +264,9 @@ shape = SubResource("RectangleShape2D_2j8tu")
 [node name="cooldown_timer" type="Timer" parent="Flippable/hitbox"]
 wait_time = 0.75
 one_shot = true
+
+[node name="Muzzle" type="Marker2D" parent="Flippable"]
+position = Vector2(8, 0)
 
 [node name="health_bar" type="ProgressBar" parent="."]
 offset_left = -7.0

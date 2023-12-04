@@ -9,10 +9,12 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
+		$"../Game/Player/UI".hide()
 		if $"../Settings".visible || $"../Achievements".visible:
 			pass
 		else:
 			if paused:
+				$"../Game/Player/UI".show()
 				unpause()
 			else:
 				pause()
