@@ -1,21 +1,23 @@
 [gd_scene load_steps=13 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
+[ext_resource type="Script" path="res://scripts/game/scene_1.gd" id="1_qhoy1"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
 [ext_resource type="PackedScene" uid="uid://cpt3hn4i8jl31" path="res://scenes/enemies/enemy_1.tscn" id="4_p3uxl"]
 [ext_resource type="PackedScene" uid="uid://b775uartmpbot" path="res://scenes/pause_menu.tscn" id="4_t3gyp"]
 [ext_resource type="PackedScene" uid="uid://bt0i7vns3kkx8" path="res://scenes/crashlanding.tscn" id="5_ch1iy"]
 [ext_resource type="PackedScene" uid="uid://cw84bf2fckw7u" path="res://scenes/Settings.tscn" id="5_v236o"]
-[ext_resource type="AudioStream" uid="uid://bvnkv435ldrv2" path="res://assets/audio/music/chill_stage_music.mp3" id="6_4crn0"]
 [ext_resource type="PackedScene" uid="uid://d4glxsiot3fyp" path="res://scenes/Achievements.tscn" id="6_emgeo"]
 [ext_resource type="PackedScene" uid="uid://b4x333a6irhn5" path="res://scenes/enemies/enemy_5.tscn" id="6_f3i2l"]
 [ext_resource type="PackedScene" uid="uid://dnhpb5jlhejx8" path="res://scenes/lava_shooter.tscn" id="7_gsk5a"]
 [ext_resource type="PackedScene" uid="uid://cbt4m7tqdlktc" path="res://scenes/forest.tscn" id="8_sxco7"]
 [ext_resource type="PackedScene" uid="uid://dewu0vax2bhia" path="res://scenes/enemies/enemy_10.tscn" id="9_x080f"]
+[ext_resource type="AudioStream" uid="uid://csv6ohi5a7v40" path="res://assets/audio/music/Stage1Track.wav" id="9_4cwh2"]
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_qhoy1")
 
 [node name="Game" type="Node2D" parent="."]
 
@@ -45,14 +47,14 @@ position = Vector2(543, 83)
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
 visible = false
 
-[node name="Settings" parent="Pause_Menu" instance=ExtResource("5_v236o")]
+[node name="Settings" parent="." instance=ExtResource("5_v236o")]
 visible = false
 
-[node name="Achievements" parent="Pause_Menu" instance=ExtResource("6_emgeo")]
+[node name="Achievements" parent="." instance=ExtResource("6_emgeo")]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_4crn0")
+stream = ExtResource("9_4cwh2")
 volume_db = -8.0
 autoplay = true
 bus = &"Music"
