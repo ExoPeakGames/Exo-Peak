@@ -41,10 +41,10 @@ text = "Exo-Peak"
 
 [node name="Left panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 58.0
-offset_right = 72.0
-offset_bottom = 116.0
+offset_left = 3.0
+offset_top = 42.0
+offset_right = 69.0
+offset_bottom = 117.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Left panel"]
 layout_mode = 0
@@ -69,6 +69,11 @@ layout_mode = 2
 text = "Achievements"
 metadata/_edit_lock_ = true
 
+[node name="QuitButton" type="Button" parent="Left panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+metadata/_edit_lock_ = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ho6ju")
 autoplay = true
@@ -77,3 +82,4 @@ bus = &"Music"
 [connection signal="pressed" from="Left panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Left panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Left panel/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="Left panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
