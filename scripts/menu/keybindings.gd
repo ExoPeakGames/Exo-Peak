@@ -13,14 +13,8 @@ extends CanvasLayer
 @onready var label_move_right : Label = $Settings_Background/label_move_right
 @onready var press_panel : PanelContainer = $Settings_Background/PanelContainer
 
-func _on_return_button_pressed():
-	if MenuButtons.pmenuButton:
-		hide()
-	else:
-		MenuButtons._on_return_button_pressed()
-		
-func _on_keybindings_pressed():
-	MenuButtons._on_keybindings_button_pressed()
+func _on_return_to_settings_pressed():
+	MenuButtons._on_keybindings_back_button_pressed()
 
 var current_button : Button
 
@@ -101,3 +95,6 @@ func _update_labels() -> void:
 		label_move_right.text = move_right_key[0].as_text()
 	else:
 		label_move_right.text = ""
+
+
+

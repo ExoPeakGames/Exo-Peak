@@ -12,7 +12,6 @@ func _on_return_button_pressed():
 	else:
 		MenuButtons._on_return_button_pressed()
 
-
 func _on_fullscreen_toggled(button_pressed):
 	userPref.fullScreen = button_pressed
 	userPref.save()
@@ -28,3 +27,7 @@ func _on_vsync_toggled(button_pressed):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+
+func _on_keybindings_pressed():
+	MenuButtons._on_keybindings_button_pressed()
