@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cw84bf2fckw7u" path="res://scenes/Settings.tscn" id="5_v236o"]
 [ext_resource type="PackedScene" uid="uid://d4glxsiot3fyp" path="res://scenes/Achievements.tscn" id="6_emgeo"]
 [ext_resource type="PackedScene" uid="uid://b4x333a6irhn5" path="res://scenes/enemies/enemy_5.tscn" id="6_f3i2l"]
-[ext_resource type="PackedScene" uid="uid://cbt4m7tqdlktc" path="res://scenes/forest.tscn" id="8_sxco7"]
 [ext_resource type="AudioStream" uid="uid://csv6ohi5a7v40" path="res://assets/audio/music/Stage1Track.wav" id="9_4cwh2"]
+[ext_resource type="PackedScene" path="res://scenes/forest2.tscn" id="11_nu5tq"]
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
@@ -19,14 +19,16 @@ anchors_preset = 0
 
 [node name="crashlanding" parent="Game" instance=ExtResource("5_ch1iy")]
 
+[node name="TileMap" parent="Game" instance=ExtResource("11_nu5tq")]
+position = Vector2(208, 112)
+
 [node name="HardBounds" parent="Game" instance=ExtResource("1_yt00p")]
 rect = Rect2i(0, -96, 1664, 208)
 
-[node name="forest" parent="Game" instance=ExtResource("8_sxco7")]
-position = Vector2(208, -96)
-
 [node name="Player" parent="Game" instance=ExtResource("1_p6b71")]
 position = Vector2(104, 60)
+collision_layer = 0
+collision_mask = 0
 
 [node name="enemy_1" parent="Game" instance=ExtResource("4_p3uxl")]
 position = Vector2(325, 45)
