@@ -30,4 +30,7 @@ func _on_vsync_toggled(button_pressed):
 
 
 func _on_keybindings_pressed():
-	MenuButtons._on_keybindings_button_pressed()
+	if MenuButtons.pmenuButton:
+		$"../Keybindings".show()
+	else:
+		MenuButtons._on_keybindings_button_pressed()

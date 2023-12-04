@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=15 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="1_p6b71"]
 [ext_resource type="Script" path="res://scripts/game/scene_1.gd" id="1_qhoy1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cbt4m7tqdlktc" path="res://scenes/forest.tscn" id="8_sxco7"]
 [ext_resource type="AudioStream" uid="uid://csv6ohi5a7v40" path="res://assets/audio/music/Stage1Track.wav" id="9_4cwh2"]
 [ext_resource type="PackedScene" uid="uid://dewu0vax2bhia" path="res://scenes/enemies/enemy_10.tscn" id="9_x080f"]
+[ext_resource type="PackedScene" uid="uid://qv5kgm32g77a" path="res://scenes/Keybindings.tscn" id="13_q8qkj"]
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
@@ -51,6 +52,9 @@ visible = false
 visible = false
 
 [node name="Achievements" parent="." instance=ExtResource("6_emgeo")]
+visible = false
+
+[node name="Keybindings" parent="." instance=ExtResource("13_q8qkj")]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

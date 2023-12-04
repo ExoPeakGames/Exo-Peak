@@ -14,7 +14,10 @@ extends CanvasLayer
 @onready var press_panel : PanelContainer = $Settings_Background/PanelContainer
 
 func _on_return_to_settings_pressed():
-	MenuButtons._on_keybindings_back_button_pressed()
+	if MenuButtons.pmenuButton:
+		hide()
+	else:
+		MenuButtons._on_keybindings_back_button_pressed()
 
 var current_button : Button
 

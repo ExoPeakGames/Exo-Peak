@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_nus7e")
-master = 1.0
+master = 0.787
 music = 1.0
 sfx = 1.0
-fullScreen = true
+fullScreen = false
 vsync = false
