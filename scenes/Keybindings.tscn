@@ -1,29 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://qv5kgm32g77a"]
+[gd_scene load_steps=11 format=3 uid="uid://bypjga7s1ssys"]
 
 [ext_resource type="Script" path="res://scripts/menu/keybindings.gd" id="1_dtv6d"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="2_oluh7"]
+[ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="3_p7g7f"]
 
 [sub_resource type="Theme" id="Theme_ity0d"]
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 10
 
 [sub_resource type="Theme" id="Theme_4wjt1"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 0)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_p7g7f")
 
 [sub_resource type="Theme" id="Theme_ajtqt"]
 Label/font_sizes/font_size = 8
 
 [sub_resource type="Theme" id="Theme_k1gkk"]
 Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_p7g7f")
 
 [sub_resource type="Theme" id="Theme_77rp8"]
 Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_p7g7f")
 
 [sub_resource type="Theme" id="Theme_4ykej"]
 Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_p7g7f")
 
 [sub_resource type="Theme" id="Theme_b8bbk"]
 Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_p7g7f")
 
 [node name="Keybindings" type="CanvasLayer"]
 process_mode = 3
