@@ -30,6 +30,7 @@ func unpause():
 	paused = false
 
 func _on_resume_button_pressed():
+	$"../Game/Player/UI".show()
 	unpause()
 
 func _on_return_button_pressed():
