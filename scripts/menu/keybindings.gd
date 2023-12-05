@@ -12,6 +12,9 @@ extends CanvasLayer
 @onready var label_move_down : Label = $Settings_Background/label_move_down
 @onready var label_move_right : Label = $Settings_Background/label_move_right
 @onready var press_panel : PanelContainer = $Settings_Background/PanelContainer
+var current_button : Button
+
+var userPref: UserPreferences
 
 func _on_return_to_settings_pressed():
 	if MenuButtons.pmenuButton:
@@ -19,9 +22,8 @@ func _on_return_to_settings_pressed():
 	else:
 		MenuButtons._on_keybindings_back_button_pressed()
 
-var current_button : Button
-
 func _ready():
+	userPref = UserPreferences.load_or_create()
 	# connect the buttons pressed signal:
 	jump.pressed.connect(_on_button_pressed.bind(jump))
 	move_up.pressed.connect(_on_button_pressed.bind(move_up))
