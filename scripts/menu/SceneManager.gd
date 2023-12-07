@@ -55,7 +55,7 @@ func _on_animation_player_animation_finished(anim_name):
 			current_scene = next_scene
 			animate.play("fade_out")
 			get_tree().paused = false
-			await animate.animation_finished
+			#await animate.animation_finished
 			MenuButtons.inputHandle("enable")
 			MenuButtons.handleSounds(current_scene)
 		#"fade_out":

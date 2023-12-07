@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="UserPreferences" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://resources/user_preferences.gd" id="1_nus7e"]
+[ext_resource type="Script" path="res://resources/user_preferences.gd" id="1_lo3m1"]
 
 [resource]
-script = ExtResource("1_nus7e")
+script = ExtResource("1_lo3m1")
 master = 1.0
-music = 0.529
-sfx = 0.297
-fullScreen = true
+music = 0.0
+sfx = 1.0
+fullscreen = false
 vsync = false
+actionEvents = {}
