@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var game_over = false
 var health = 8
 var jumping = false
 var ammo = 6
@@ -20,7 +21,7 @@ func _ready():
 func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED and get_position_delta() != Vector2.ZERO:
 		#warning-ignore:integer_division
-		$PlayerCamera.position = Vector2(208,120)-position.posmodv(Vector2(208,120))-Vector2(104,60)
+		$PlayerCamera.position = Vector2(104,60)-position.posmodv(Vector2(208,120))
 	
 
 func _physics_process(delta):
@@ -69,10 +70,10 @@ func _on_reload():
 func take_damage(amount):
 	health -= amount
 	$UI/HealthBar.frame = health
-	print(amount)
-	if (health <=  0):
+	if (health <= 0 and not game_over):
 		# play death animation
 		# game over
+		game_over = true
 		print("game over")
 		queue_free()
 		MenuButtons._on_return_button_pressed()

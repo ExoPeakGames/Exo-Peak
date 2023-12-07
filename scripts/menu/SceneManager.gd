@@ -32,6 +32,9 @@ func _handle_scene_change(go_to_scene: String):
 		"achievements":
 			next_scene_name = "Achievements"
 			#animation_name =
+		"keybindings":
+			next_scene_name = "Keybindings"
+			#animation_name =
 		_:
 			return
 	var temp = load("res://scenes/" + next_scene_name + ".tscn")
