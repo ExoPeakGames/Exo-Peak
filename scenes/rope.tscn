@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/rope.gd" id="1_o0mvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdwpg"]
-size = Vector2(6.5, 90.5)
+size = Vector2(3.625, 91.25)
 
 [node name="Rope" type="Area2D"]
 collision_layer = 256
@@ -11,7 +11,6 @@ collision_mask = 304
 script = ExtResource("1_o0mvo")
 
 [node name="RopeCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.25)
 shape = SubResource("RectangleShape2D_hdwpg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

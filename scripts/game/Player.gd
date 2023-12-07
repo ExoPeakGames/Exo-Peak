@@ -51,7 +51,7 @@ func _physics_process(delta):
 		set_up_direction(Vector2.UP)
 		move_and_slide()
 			
-		if climbing == true:
+		if climbing:
 			velocity.y = 0
 			if Input.is_action_pressed("move_up"):
 				velocity.y = -SPEED
