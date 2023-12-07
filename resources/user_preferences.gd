@@ -4,7 +4,7 @@ class_name UserPreferences extends Resource
 @export_range(0, 1, 0.001) var music: float = 1.0
 @export_range(0, 1, 0.001) var sfx: float = 1.0
 
-@export var fullScreen: bool = false
+@export var fullscreen: bool = false
 @export var vsync: bool = false
 @export var actionEvents: Dictionary = {}
 
