@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=15 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="Script" path="res://scripts/game/scene_1.gd" id="1_qhoy1"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
@@ -14,42 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://niocoma4bcsy" path="res://scenes/checkpoint.tscn" id="10_txien"]
 [ext_resource type="PackedScene" uid="uid://c7x2q1dlkaxfu" path="res://scenes/forest2.tscn" id="11_nu5tq"]
 [ext_resource type="PackedScene" uid="uid://bypjga7s1ssys" path="res://scenes/Keybindings.tscn" id="13_ffpcc"]
-
-[sub_resource type="Animation" id="Animation_uwo1b"]
-resource_name = "fadeIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Game/OverlayLayer/Overlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_c8ic5"]
-resource_name = "fadeOut"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Game/OverlayLayer/Overlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rm1we"]
-_data = {
-"fadeIn": SubResource("Animation_uwo1b"),
-"fadeOut": SubResource("Animation_c8ic5")
-}
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
@@ -83,28 +47,11 @@ disable_damage_on_touch = false
 
 [node name="checkpoint" parent="Game" instance=ExtResource("10_txien")]
 position = Vector2(216, 105)
+metadata/_edit_lock_ = true
 
 [node name="checkpoint2" parent="Game" instance=ExtResource("10_txien")]
 position = Vector2(421, 40)
 metadata/_edit_lock_ = true
-
-[node name="OverlayLayer" type="CanvasLayer" parent="Game"]
-layer = 10
-
-[node name="Overlay" type="ColorRect" parent="Game/OverlayLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
-
-[node name="reloadScene" type="AnimationPlayer" parent="Game"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_rm1we")
-}
 
 [node name="Player" parent="Game" instance=ExtResource("9_jtfcd")]
 
@@ -125,5 +72,3 @@ stream = ExtResource("9_4cwh2")
 volume_db = -8.0
 autoplay = true
 bus = &"Music"
-
-[connection signal="animation_finished" from="Game/reloadScene" to="." method="_on_reload_scene_animation_finished"]

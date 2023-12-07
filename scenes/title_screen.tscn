@@ -39,37 +39,68 @@ theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 100
 text = "Exo-Peak"
 
-[node name="Left panel" type="Panel" parent="."]
+[node name="LeftPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 42.0
 offset_right = 69.0
 offset_bottom = 117.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Left panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPanel"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 6.0
 offset_right = 49.0
 offset_bottom = 50.0
 
-[node name="PlayButton" type="Button" parent="Left panel/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="LeftPanel/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 metadata/_edit_lock_ = true
 
-[node name="SettingsButton" type="Button" parent="Left panel/VBoxContainer"]
+[node name="playModes" type="Panel" parent="LeftPanel/VBoxContainer/PlayButton"]
+visible = false
+offset_left = 61.0
+offset_top = -6.0
+offset_right = 125.0
+offset_bottom = 53.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPanel/VBoxContainer/PlayButton/playModes"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 49.0
+
+[node name="newGame" type="Button" parent="LeftPanel/VBoxContainer/PlayButton/playModes/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+metadata/_edit_lock_ = true
+
+[node name="loadGame" type="Button" parent="LeftPanel/VBoxContainer/PlayButton/playModes/VBoxContainer"]
+layout_mode = 2
+text = "Load Game
+"
+metadata/_edit_lock_ = true
+
+[node name="backButton" type="Button" parent="LeftPanel/VBoxContainer/PlayButton/playModes/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+metadata/_edit_lock_ = true
+
+[node name="SettingsButton" type="Button" parent="LeftPanel/VBoxContainer"]
 layout_mode = 2
 text = "Settings
 "
 metadata/_edit_lock_ = true
 
-[node name="AchievementsButton" type="Button" parent="Left panel/VBoxContainer"]
+[node name="AchievementsButton" type="Button" parent="LeftPanel/VBoxContainer"]
 layout_mode = 2
 text = "Achievements"
 metadata/_edit_lock_ = true
 
-[node name="QuitButton" type="Button" parent="Left panel/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="LeftPanel/VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
 metadata/_edit_lock_ = true
@@ -79,7 +110,10 @@ stream = ExtResource("4_ho6ju")
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="Left panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Left panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Left panel/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
-[connection signal="pressed" from="Left panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/PlayButton/playModes/VBoxContainer/newGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/PlayButton/playModes/VBoxContainer/loadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/PlayButton/playModes/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="LeftPanel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
