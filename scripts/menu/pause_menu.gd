@@ -9,12 +9,12 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
-		$"../Game/Player/UI".hide()
+		$"../Game/Player/UI/HealthBar".hide()
 		if $"../Settings".visible || $"../Achievements".visible:
 			pass
 		else:
 			if paused:
-				$"../Game/Player/UI".show()
+				$"../Game/Player/UI/HealthBar".show()
 				unpause()
 			else:
 				pause()
@@ -30,7 +30,7 @@ func unpause():
 	paused = false
 
 func _on_resume_button_pressed():
-	$"../Game/Player/UI".show()
+	$"../Game/Player/UI/HealthBar".show()
 	unpause()
 
 func _on_return_button_pressed():
@@ -43,3 +43,8 @@ func _on_achievements_button_pressed():
 func _on_settings_button_pressed():
 	MenuButtons.pmenuButton = true
 	$"../Settings".show()
+
+
+func _on_reset_level_button_pressed():
+	PlayerData.spawnerLocation = Vector2(104, 100)
+	MenuButtons._on_play_button_pressed()
