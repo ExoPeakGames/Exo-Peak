@@ -54,7 +54,4 @@ func _ready():
 	vsync = preferences.vsync
 
 func toggle_fullscreen():
-	if preferences.fullscreen:
-		fullscreen = false
-	else:
-		fullscreen = true
+	fullscreen = not preferences.fullscreen
