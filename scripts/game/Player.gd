@@ -5,6 +5,8 @@ var health = 8
 var jumping = false
 var ammo = 6
 var spawner = null 
+var playerSave: PlayerSave
+var newGame: NewGame
 
 @export var SPEED : float = 80
 @export var FALL_STRENGTH : float = 2
@@ -22,7 +24,15 @@ func _ready():
 	set_notify_transform(true)
 
 func _init():
-	position = PlayerData.spawnerLocation
+	var gameMode
+	if PlayerData.new_game:
+		newGame = NewGame.load_or_create()
+		gameMode = newGame
+	else:
+		playerSave = PlayerSave.load_or_create()
+		gameMode = playerSave
+	if gameMode:
+		position = gameMode.position
 
 func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED and get_position_delta() != Vector2.ZERO:

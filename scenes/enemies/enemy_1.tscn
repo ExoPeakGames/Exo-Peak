@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://classes/HitBox.gd" id="4_h66nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyjsb"]
-size = Vector2(21.9516, 23.1332)
+size = Vector2(22.565, 22.1493)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14p43"]
 atlas = ExtResource("2_rx754")
@@ -171,18 +171,20 @@ animations = [{
 size = Vector2(80, 44.2871)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hym0o"]
-size = Vector2(9.6, 13.2)
+size = Vector2(6.8, 9.6)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8ais"]
 bg_color = Color(0.54902, 0.0313726, 0, 1)
 
 [node name="enemy_1" type="CharacterBody2D" groups=["enemy", "projectile_4"]]
+collision_layer = 256
+collision_mask = 256
 script = ExtResource("1_d1tbt")
 SPEED = 200.0
 can_bite = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.146821, 2.165)
+position = Vector2(0.248793, 2)
 rotation = -3.14159
 scale = Vector2(0.33248, -0.541779)
 shape = SubResource("RectangleShape2D_vyjsb")
@@ -192,8 +194,10 @@ shape = SubResource("RectangleShape2D_vyjsb")
 [node name="enemy" type="AnimatedSprite2D" parent="Flippable"]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_tfu4c")
-animation = &"hurt"
+animation = &"walk"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 script = ExtResource("3_m68ea")
 
 [node name="idle_timer" type="Timer" parent="Flippable/enemy"]
@@ -202,6 +206,8 @@ one_shot = true
 
 [node name="detection_area" type="Area2D" parent="Flippable"]
 scale = Vector2(1.8, 0.6)
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/detection_area"]
 position = Vector2(-3.33333, -3.70467)
@@ -215,18 +221,17 @@ collision_mask = 2
 script = ExtResource("3_s7m0d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/hurtbox"]
-position = Vector2(0, 0.75)
+position = Vector2(0.5, 1.9375)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_hym0o")
 
 [node name="hitbox" type="Area2D" parent="Flippable" groups=["HitBox"]]
-position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("4_h66nc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/hitbox"]
-position = Vector2(-1.78814e-07, 1)
+position = Vector2(0.75, 2)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_hym0o")
 

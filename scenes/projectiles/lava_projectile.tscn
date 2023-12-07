@@ -130,7 +130,7 @@ size = Vector2(3, 4)
 
 [node name="lava_projectile" type="CharacterBody2D" groups=["vertical_projectile"]]
 script = ExtResource("1_34vs0")
-SPEED = 75
+SPEED = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g4jcr")

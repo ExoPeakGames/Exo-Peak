@@ -1,4 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=15 format=3 uid="uid://if6ah067nd5p"]
+
 
 [ext_resource type="Script" path="res://scripts/game/scene_1.gd" id="1_qhoy1"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4x333a6irhn5" path="res://scenes/enemies/enemy_5.tscn" id="6_f3i2l"]
 [ext_resource type="PackedScene" uid="uid://dnhpb5jlhejx8" path="res://scenes/lava_shooter.tscn" id="7_gsk5a"]
 [ext_resource type="AudioStream" uid="uid://csv6ohi5a7v40" path="res://assets/audio/music/Stage1Track.wav" id="9_4cwh2"]
+[ext_resource type="Script" path="res://classes/HitBox.gd" id="9_dk4lm"]
 [ext_resource type="PackedScene" uid="uid://dqctc0dtuuhkj" path="res://scenes/player.tscn" id="9_jtfcd"]
 [ext_resource type="PackedScene" uid="uid://bxjf4ooj1oyrt" path="res://scenes/rope.tscn" id="9_ku5eq"]
 [ext_resource type="PackedScene" uid="uid://dewu0vax2bhia" path="res://scenes/enemies/enemy_10.tscn" id="9_x080f"]
@@ -16,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://d1n0i85adf71l" path="res://scenes/rope_small.tscn" id="11_66mle"]
 [ext_resource type="PackedScene" uid="uid://c7x2q1dlkaxfu" path="res://scenes/forest2.tscn" id="11_nu5tq"]
 [ext_resource type="PackedScene" uid="uid://bypjga7s1ssys" path="res://scenes/Keybindings.tscn" id="13_ffpcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaff4"]
+size = Vector2(1169, 48)
 
 [node name="Scene1" type="Control"]
 layout_mode = 3
@@ -32,23 +37,36 @@ collision_layer = 16
 collision_mask = 256
 rect = Rect2i(0, -96, 1664, 208)
 
+[node name="Player" parent="Game" instance=ExtResource("9_jtfcd")]
+position = Vector2(125, 101)
+
 [node name="enemy_1" parent="Game" instance=ExtResource("4_p3uxl")]
-position = Vector2(318, 75)
-immobile = true
+position = Vector2(312, 99)
 
 [node name="enemy_5" parent="Game" instance=ExtResource("6_f3i2l")]
-position = Vector2(397, 82)
+position = Vector2(383, 36)
 
 [node name="lava_shooter" parent="Game" instance=ExtResource("7_gsk5a")]
-position = Vector2(455, 105)
+position = Vector2(438, 96)
 
 [node name="enemy_10" parent="Game" instance=ExtResource("9_x080f")]
 position = Vector2(543, 83)
 projectile_enabled = false
 disable_damage_on_touch = false
 
+[node name="lava" type="Area2D" parent="Game" groups=["HitBox", "lava", "projectile"]]
+position = Vector2(0, 1)
+script = ExtResource("9_dk4lm")
+damage = 1000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/lava"]
+position = Vector2(992.5, 120)
+shape = SubResource("RectangleShape2D_gaff4")
+debug_color = Color(0.701961, 0.258824, 0.258824, 0.419608)
+
 [node name="checkpoint" parent="Game" instance=ExtResource("10_txien")]
 position = Vector2(216, 105)
+metadata/_edit_lock_ = true
 
 [node name="checkpoint2" parent="Game" instance=ExtResource("10_txien")]
 position = Vector2(421, 40)
@@ -75,8 +93,6 @@ position = Vector2(660, 24)
 [node name="Rope4" parent="Game" instance=ExtResource("9_ku5eq")]
 position = Vector2(956, 31)
 priority = 1
-
-[node name="Player" parent="Game" groups=["climber"] instance=ExtResource("9_jtfcd")]
 
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
 visible = false

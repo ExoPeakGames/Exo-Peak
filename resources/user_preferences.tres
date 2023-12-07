@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_lo3m1")
-master = 0.087
-music = 0.166
+master = 1.0
+music = 0.0
 sfx = 1.0
 fullscreen = false
 vsync = false
