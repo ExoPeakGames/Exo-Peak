@@ -32,6 +32,9 @@ func _handle_scene_change(go_to_scene: String):
 		"achievements":
 			next_scene_name = "Achievements"
 			#animation_name =
+		"keybindings":
+			next_scene_name = "Keybindings"
+			#animation_name =
 		_:
 			return
 	var temp = load("res://scenes/" + next_scene_name + ".tscn")
@@ -52,7 +55,7 @@ func _on_animation_player_animation_finished(anim_name):
 			current_scene = next_scene
 			animate.play("fade_out")
 			get_tree().paused = false
-			await animate.animation_finished
+			#await animate.animation_finished
 			MenuButtons.inputHandle("enable")
 			MenuButtons.handleSounds(current_scene)
 		#"fade_out":

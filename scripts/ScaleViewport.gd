@@ -22,12 +22,13 @@ var old_window_mode = null
 
 func _input(event):
 	if event.is_action_pressed("fullscreen"):
-		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
-			old_window_mode = DisplayServer.window_get_mode()
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		elif old_window_mode != null:
-			DisplayServer.window_set_mode(old_window_mode)
-		else:
-			old_window_mode = DisplayServer.window_get_mode()
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		CurrentUserPreferences.toggle_fullscreen()
+#		if not CurrentUserPreferences.preferences.fullscreen:
+#			old_window_mode = DisplayServer.window_get_mode()
+#			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+#		elif old_window_mode != null:
+#			DisplayServer.window_set_mode(old_window_mode)
+#		else:
+#			old_window_mode = DisplayServer.window_get_mode()
+#			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 

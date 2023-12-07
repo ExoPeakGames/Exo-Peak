@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw84bf2fckw7u"]
+[gd_scene load_steps=4 format=3 uid="uid://cw84bf2fckw7u"]
 
 [ext_resource type="Script" path="res://scripts/menu/settings.gd" id="1_aqbxm"]
 [ext_resource type="Theme" uid="uid://clx7u60ug2yr" path="res://assets/ui/menu_theme.tres" id="3_kfjjf"]
+[ext_resource type="PackedScene" uid="uid://bn2gfllt3f68m" path="res://scenes/volume_slider.tscn" id="3_mobf0"]
 
 [node name="Settings" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_aqbxm")
 
 [node name="Settings_Background" type="Panel" parent="."]
@@ -22,50 +24,136 @@ theme = ExtResource("3_kfjjf")
 
 [node name="settings_label" type="Label" parent="Settings_Background"]
 layout_mode = 2
-offset_left = 70.0
-offset_top = 2.0
-offset_right = 131.0
-offset_bottom = 28.0
+offset_left = 73.0
+offset_top = -2.0
+offset_right = 135.0
+offset_bottom = 24.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Settings"
 vertical_alignment = 1
 
-[node name="Primary Buttons" type="VBoxContainer" parent="Settings_Background"]
+[node name="Sliders" type="VBoxContainer" parent="Settings_Background"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 37.0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 144.0
+offset_bottom = 103.0
+
+[node name="Master" parent="Settings_Background/Sliders" instance=ExtResource("3_mobf0")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "Master"
+
+[node name="master" type="Label" parent="Settings_Background/Sliders/Master"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = -2.0
+offset_right = 62.0
+offset_bottom = 6.0
+scale = Vector2(1.32, 1)
+theme = ExtResource("3_kfjjf")
+theme_type_variation = &"small_text"
+text = "Master Volume"
+
+[node name="Music" parent="Settings_Background/Sliders" instance=ExtResource("3_mobf0")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "Music"
+
+[node name="music" type="Label" parent="Settings_Background/Sliders/Music"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -2.0
 offset_right = 61.0
-offset_bottom = 128.0
+offset_bottom = 6.0
+scale = Vector2(1.32, 1)
+theme = ExtResource("3_kfjjf")
+theme_type_variation = &"small_text"
+text = "Music Volume"
 
-[node name="button1" type="Button" parent="Settings_Background/Primary Buttons"]
-custom_minimum_size = Vector2(48, 10)
+[node name="UI" parent="Settings_Background/Sliders" instance=ExtResource("3_mobf0")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "UI"
+
+[node name="sfx" type="Label" parent="Settings_Background/Sliders/UI"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = -2.0
+offset_right = 104.0
+offset_bottom = 6.0
+theme = ExtResource("3_kfjjf")
+theme_type_variation = &"small_text"
+text = "SFX Volume"
+
+[node name="Fullscreen" type="VBoxContainer" parent="Settings_Background"]
+layout_mode = 2
+offset_left = 75.0
+offset_top = 24.0
+offset_right = 99.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_kfjjf")
+
+[node name="fullscreen" type="CheckButton" parent="Settings_Background/Fullscreen"]
+layout_mode = 2
+theme = ExtResource("3_kfjjf")
+button_pressed = true
+
+[node name="Label" type="Label" parent="Settings_Background/Fullscreen/fullscreen"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 76.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+theme = ExtResource("3_kfjjf")
+theme_type_variation = &"small_text"
+text = "Fullscreen"
+
+[node name="V-sync" type="VBoxContainer" parent="Settings_Background"]
+layout_mode = 2
+offset_left = 75.0
+offset_top = 37.0
+offset_right = 99.0
+offset_bottom = 77.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_kfjjf")
+
+[node name="vsync" type="CheckButton" parent="Settings_Background/V-sync"]
 layout_mode = 2
 theme = ExtResource("3_kfjjf")
 
-[node name="button2" type="Button" parent="Settings_Background/Primary Buttons"]
-custom_minimum_size = Vector2(48, 10)
+[node name="Label" type="Label" parent="Settings_Background/V-sync/vsync"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 76.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+theme = ExtResource("3_kfjjf")
+theme_type_variation = &"small_text"
+text = "V-sync"
+
+[node name="Primary Buttons" type="VBoxContainer" parent="Settings_Background"]
+layout_mode = 2
+offset_left = 72.0
+offset_top = 103.0
+offset_right = 136.0
+offset_bottom = 115.0
+
+[node name="keybindings" type="Button" parent="Settings_Background/Primary Buttons"]
+custom_minimum_size = Vector2(64, 12)
 layout_mode = 2
 theme = ExtResource("3_kfjjf")
-
-[node name="button3" type="Button" parent="Settings_Background/Primary Buttons"]
-custom_minimum_size = Vector2(48, 10)
-layout_mode = 2
-
-[node name="button4" type="Button" parent="Settings_Background/Primary Buttons"]
-custom_minimum_size = Vector2(48, 10)
-layout_mode = 2
-theme = ExtResource("3_kfjjf")
-
-[node name="Button" type="Button" parent="Settings_Background/Primary Buttons"]
-custom_minimum_size = Vector2(48, 10)
-layout_mode = 2
+text = "Key Bindings"
 
 [node name="Back" type="HBoxContainer" parent="Settings_Background"]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 100.0
-offset_right = 198.0
-offset_bottom = 110.0
+offset_left = 25.0
+offset_top = 6.0
+offset_right = 53.0
+offset_bottom = 16.0
 
 [node name="returnButton" type="Button" parent="Settings_Background/Back"]
 layout_mode = 2
@@ -74,66 +162,7 @@ theme = ExtResource("3_kfjjf")
 theme_type_variation = &"achievement_button"
 text = "Back"
 
-[node name="Sliders" type="VBoxContainer" parent="Settings_Background"]
-layout_mode = 0
-offset_left = 112.0
-offset_top = 34.0
-offset_right = 192.0
-offset_bottom = 74.0
-
-[node name="slider" type="HSlider" parent="Settings_Background/Sliders"]
-custom_minimum_size = Vector2(54, 13)
-layout_mode = 2
-theme = ExtResource("3_kfjjf")
-
-[node name="label" type="Label" parent="Settings_Background/Sliders/slider"]
-layout_mode = 2
-offset_left = -38.0
-offset_top = 3.0
-offset_right = -14.0
-offset_bottom = 11.0
-scale = Vector2(1.32, 1)
-theme = ExtResource("3_kfjjf")
-theme_type_variation = &"small_text"
-text = "slider"
-
-[node name="slider2" type="HSlider" parent="Settings_Background/Sliders"]
-custom_minimum_size = Vector2(54, 13)
-layout_mode = 2
-
-[node name="label" type="Label" parent="Settings_Background/Sliders/slider2"]
-layout_mode = 0
-offset_left = -38.0
-offset_top = 3.0
-offset_right = -14.0
-offset_bottom = 11.0
-scale = Vector2(1.32, 1)
-theme = ExtResource("3_kfjjf")
-theme_type_variation = &"small_text"
-text = "slider"
-
-[node name="Check Button" type="VBoxContainer" parent="Settings_Background"]
-layout_mode = 2
-offset_left = 87.0
-offset_top = 73.0
-offset_right = 111.0
-offset_bottom = 125.0
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("3_kfjjf")
-
-[node name="CheckButton" type="CheckButton" parent="Settings_Background/Check Button"]
-layout_mode = 2
-theme = ExtResource("3_kfjjf")
-
-[node name="Label" type="Label" parent="Settings_Background/Check Button/CheckButton"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 6.0
-offset_right = 70.0
-offset_bottom = 29.0
-scale = Vector2(2, 2)
-theme = ExtResource("3_kfjjf")
-theme_type_variation = &"small_text"
-text = "check"
-
+[connection signal="toggled" from="Settings_Background/Fullscreen/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Settings_Background/V-sync/vsync" to="." method="_on_vsync_toggled"]
+[connection signal="pressed" from="Settings_Background/Primary Buttons/keybindings" to="." method="_on_keybindings_pressed"]
 [connection signal="pressed" from="Settings_Background/Back/returnButton" to="." method="_on_return_button_pressed"]

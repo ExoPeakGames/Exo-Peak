@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cir0tli8eewol" path="res://assets/fonts/Asbestos3x5mono.ttf" id="1_qjsas"]
 [ext_resource type="Script" path="res://scripts/menu/title_screen.gd" id="2_4d3ss"]
 [ext_resource type="Texture2D" uid="uid://btrwt6vtro3ll" path="res://assets/ui/Menu_Page.png" id="2_qtp67"]
-[ext_resource type="AudioStream" uid="uid://c7anysjhvcppm" path="res://assets/audio/music/main_menu_music.mp3" id="4_mef6x"]
+[ext_resource type="AudioStream" uid="uid://cflfv68ha4tcw" path="res://assets/audio/music/MainMenuTrack.wav" id="4_ho6ju"]
 
 [sub_resource type="Theme" id="Theme_t210o"]
 default_font = ExtResource("1_qjsas")
@@ -41,10 +41,10 @@ text = "Exo-Peak"
 
 [node name="Left panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 58.0
-offset_right = 72.0
-offset_bottom = 116.0
+offset_left = 3.0
+offset_top = 42.0
+offset_right = 69.0
+offset_bottom = 117.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Left panel"]
 layout_mode = 0
@@ -69,11 +69,17 @@ layout_mode = 2
 text = "Achievements"
 metadata/_edit_lock_ = true
 
+[node name="QuitButton" type="Button" parent="Left panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+metadata/_edit_lock_ = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_mef6x")
+stream = ExtResource("4_ho6ju")
 autoplay = true
 bus = &"Music"
 
 [connection signal="pressed" from="Left panel/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Left panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Left panel/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="Left panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
