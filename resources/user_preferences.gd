@@ -6,6 +6,7 @@ class_name UserPreferences extends Resource
 
 @export var fullscreen: bool = false
 @export var vsync: bool = false
+@export var actionEvents: Dictionary = {}
 
 func save():
 	ResourceSaver.save(self, "res://resources/user_preferences.tres")

@@ -14,8 +14,6 @@ extends CanvasLayer
 @onready var press_panel : PanelContainer = $Settings_Background/PanelContainer
 var current_button : Button
 
-var userPref: UserPreferences
-
 func _on_return_to_settings_pressed():
 	if MenuButtons.pmenuButton:
 		hide()
@@ -23,7 +21,6 @@ func _on_return_to_settings_pressed():
 		MenuButtons._on_keybindings_back_button_pressed()
 
 func _ready():
-	userPref = UserPreferences.load_or_create()
 	# connect the buttons pressed signal:
 	jump.pressed.connect(_on_button_pressed.bind(jump))
 	move_up.pressed.connect(_on_button_pressed.bind(move_up))
