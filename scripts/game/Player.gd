@@ -13,6 +13,7 @@ var spawner = null
 @export_range(0, 1.0) var ACCELERATION : float = 0.5
 @export_range(0, 1.0) var FRICTION : float = 0.5
 
+@export var climbing = false
 @onready var was_on_floor = is_on_floor()
 @onready var Bullet = preload("res://scenes/projectiles/bullet.tscn")
 var paused = false
@@ -49,6 +50,13 @@ func _physics_process(delta):
 		set_velocity(velocity)
 		set_up_direction(Vector2.UP)
 		move_and_slide()
+			
+		if climbing == true:
+			velocity.y = 0
+			if Input.is_action_pressed("move_up"):
+				velocity.y = -SPEED
+			elif Input.is_action_pressed("move_down"):
+				velocity.y = SPEED
 		
 		if not was_on_floor and is_on_floor():
 			pass  # play sound effect
