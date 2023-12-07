@@ -20,11 +20,13 @@ func _on_area_entered(area):
 		return
 	if area.is_in_group("player_hurtbox"):
 		player = area
-		owner.in_range = true
+		if not is_in_group("lava"):
+			owner.in_range = true
 
 func _on_area_exited(area):
 	if area.is_in_group("player_hurtbox"):
-		owner.in_range = false
+		if not is_in_group("lava"):
+			owner.in_range = false
 		player = null
 
 func deal_damage():

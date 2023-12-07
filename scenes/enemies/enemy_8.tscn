@@ -243,6 +243,8 @@ size = Vector2(12.8, 13.6)
 bg_color = Color(0.54902, 0.0313726, 0, 1)
 
 [node name="enemy_8" type="CharacterBody2D" groups=["enemy", "projectile_2"]]
+collision_layer = 256
+collision_mask = 256
 script = ExtResource("1_tm2b6")
 immobile = true
 projectile_enabled = true
