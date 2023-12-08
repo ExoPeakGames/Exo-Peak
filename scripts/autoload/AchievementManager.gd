@@ -9,14 +9,14 @@ func _ready():
 func init_achievements():
 	# Create and add achievements to the list
 	var achievement1 = Achievement.new("Crash Landing on Who?", "Beat Stage 1", 0)
-	var achievement2 = Achievement.new("Trees!", "Beat Stage 2", 0)
-	var achievement3 = Achievement.new("So This is the Peak.", "Beat Stage 3", 0)
+	var achievement2 = Achievement.new("Peak of the Mountain", "Beat Stage 2", 0)
+	var achievement3 = Achievement.new("I fired... and I missed.", "Shoot Your Gun a Lot!", 0)
 	var achievement4 = Achievement.new("Who Knew You Could Jump?", "Jump Ten Times!", 0)
 	
 	#store them in dict
 	add_achievement("stage_1_complete", achievement1)
 	add_achievement("stage_2_complete", achievement2)
-	add_achievement("stage_3_complete", achievement3)
+	add_achievement("blast", achievement3)
 	add_achievement("jumping", achievement4)
 
 func add_achievement(id: String, ach: Achievement):

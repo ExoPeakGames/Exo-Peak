@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxjf4ooj1oyrt"]
 
-[ext_resource type="Script" path="res://scenes/rope.gd" id="1_o0mvo"]
+[ext_resource type="Script" path="res://scripts/game/rope.gd" id="1_o0mvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdwpg"]
 size = Vector2(3.625, 91.25)

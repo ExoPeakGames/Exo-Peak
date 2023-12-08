@@ -1,6 +1,6 @@
 extends Node
 
-signal scene_change(scene_name: String)
+signal scene_change(scene_name: String, level: int)
 var disableKeyboard = false
 var sounds = {
 	&"UI_Hover" : AudioStreamPlayer.new(),
@@ -18,25 +18,23 @@ func _ready():
 		add_child(sounds[k])
 
 func _on_return_button_pressed():
-	emit_signal("scene_change", "title")
+	emit_signal("scene_change", "title", 0)
 
-func _on_play_button_pressed():
-	emit_signal("scene_change", "game")
+func _on_play_button_pressed(level_num: int):
+	emit_signal("scene_change", "game", level_num)
 
 func _on_settings_button_pressed():
-	emit_signal("scene_change", "settings")
+	emit_signal("scene_change", "settings", 0)
 
 func _on_achievements_button_pressed():
-	emit_signal("scene_change", "achievements")
+	emit_signal("scene_change", "achievements", 0)
 	
 func _on_keybindings_button_pressed():
-	emit_signal("scene_change", "keybindings")
+	emit_signal("scene_change", "keybindings", 0)
 
 func _on_keybindings_back_button_pressed():
-	emit_signal("scene_change", "settings")
+	emit_signal("scene_change", "settings", 0)
 
-func _on_scene_2():
-	emit_signal("scene_change", "scene_2")
 
 # to disable ANY input (mouse) during scene transitions
 func inputHandle(handle: String):
