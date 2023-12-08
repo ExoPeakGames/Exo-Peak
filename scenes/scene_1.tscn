@@ -1,5 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://if6ah067nd5p"]
-
+[gd_scene load_steps=20 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="Script" path="res://scripts/game/scene_1.gd" id="1_qhoy1"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d1n0i85adf71l" path="res://scenes/rope_small.tscn" id="11_66mle"]
 [ext_resource type="PackedScene" uid="uid://c7x2q1dlkaxfu" path="res://scenes/forest2.tscn" id="11_nu5tq"]
 [ext_resource type="PackedScene" uid="uid://bypjga7s1ssys" path="res://scenes/Keybindings.tscn" id="13_ffpcc"]
+[ext_resource type="PackedScene" uid="uid://bpbduu2a1oete" path="res://scenes/stage_transition.tscn" id="13_yyncy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gaff4"]
 size = Vector2(1169, 48)
@@ -78,21 +78,26 @@ position = Vector2(700, -32)
 [node name="checkpoint4" parent="Game" instance=ExtResource("10_txien")]
 position = Vector2(1300, 8)
 
-[node name="Rope" parent="Game" instance=ExtResource("9_ku5eq")]
+[node name="rope" parent="Game" instance=ExtResource("9_ku5eq")]
 position = Vector2(476, 39)
 collision_layer = 306
 priority = 1
 
-[node name="Rope2" parent="Game" instance=ExtResource("9_ku5eq")]
+[node name="rope2" parent="Game" instance=ExtResource("9_ku5eq")]
 position = Vector2(604, 38)
 priority = 1
 
-[node name="Rope3" parent="Game" instance=ExtResource("11_66mle")]
+[node name="rope3" parent="Game" instance=ExtResource("11_66mle")]
 position = Vector2(660, 24)
 
-[node name="Rope4" parent="Game" instance=ExtResource("9_ku5eq")]
+[node name="rope4" parent="Game" instance=ExtResource("9_ku5eq")]
 position = Vector2(956, 31)
 priority = 1
+
+[node name="Finish" parent="Game" instance=ExtResource("13_yyncy")]
+position = Vector2(1631, 93)
+collision_layer = 256
+collision_mask = 304
 
 [node name="Pause_Menu" parent="." instance=ExtResource("4_t3gyp")]
 visible = false
