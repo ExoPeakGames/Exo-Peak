@@ -44,7 +44,5 @@ func _on_settings_button_pressed():
 	MenuButtons.pmenuButton = true
 	$"../Settings".show()
 
-
 func _on_reset_level_button_pressed():
-	PlayerData.spawnerLocation = Vector2(104, 100)
 	MenuButtons._on_play_button_pressed()
