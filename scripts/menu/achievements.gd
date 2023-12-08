@@ -3,6 +3,7 @@ extends CanvasLayer
 func _ready():
 	load_achievement_progress()
 
+# if pause menu hide, if main menu return.
 func _on_return_button_pressed():
 	if MenuButtons.pmenuButton:
 		hide()

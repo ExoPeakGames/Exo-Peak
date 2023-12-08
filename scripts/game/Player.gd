@@ -93,13 +93,14 @@ func take_damage(amount):
 		PlayerData.health = 8
 		game_over = true
 		print("game over")
-		MenuButtons._on_play_button_pressed()
+		MenuButtons._on_play_button_pressed(PlayerData.level_num)
 		await $"../../../AnimationPlayer".animation_finished
 	# play sound effect
-
 func shoot():
 	var b = Bullet.instantiate()
+	AchievementManager.increase_achievement_progress("blast", 1)
 	b.init(Vector2($Flippable.scale.x, 0))
 	add_sibling(b)
 	#b.direction = Vector2($Flippable.scale.x, 0)
 	b.global_position = $Flippable/Muzzle.global_position
+

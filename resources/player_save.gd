@@ -1,8 +1,9 @@
 class_name PlayerSave extends Resource
 
 @export var health: int = 8
-@export var position = Vector2(104, 100)
-@export var lastCheckpoint = Vector2(104, 100)
+@export var position := Vector2(104, 100)
+@export var lastCheckpoint := Vector2(104, 100)
+@export var level_num: int = 1
 func save():
 	ResourceSaver.save(self, "res://resources/player_Save.tres")
 

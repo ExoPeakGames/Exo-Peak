@@ -12,7 +12,7 @@ func _ready() -> void:
 	MenuButtons.connect("scene_change", _handle_scene_change)
 	
 
-func _handle_scene_change(go_to_scene: String):
+func _handle_scene_change(go_to_scene: String, level_num: int):
 	
 	var next_scene_name: String
 	# Thinking of adding a animation name variable to later choose what animations to play
@@ -23,8 +23,16 @@ func _handle_scene_change(go_to_scene: String):
 			next_scene_name = "Settings"
 			#animation_name =
 		"game":
-			next_scene_name = "scene_1"
-			#animation_name =
+			
+			match level_num:
+				1:
+					next_scene_name = "scene_1"
+					#animation_name =
+				2:
+					next_scene_name = "scene_2"
+					#animation_name =
+				_:
+					next_scene_name = "scene_1"
 		"title":
 			next_scene_name = "title_screen"
 			MenuButtons.pmenuButton = false
