@@ -45,4 +45,11 @@ func _on_settings_button_pressed():
 	$"../Settings".show()
 
 func _on_reset_level_button_pressed():
+	PlayerData.health = 8
+	PlayerData.spawnerLocation = PlayerData.lastCheckpoint
 	MenuButtons._on_play_button_pressed()
+
+func _on_save_button_pressed():
+	PlayerData.spawnerLocation = $"../Game/Player".position
+	PlayerData.health = $"../Game/Player".health
+	PlayerData.save()
