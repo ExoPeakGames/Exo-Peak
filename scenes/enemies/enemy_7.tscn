@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://classes/HitBox.gd" id="5_743w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr430"]
-size = Vector2(21.9516, 23.1332)
+size = Vector2(21.9516, 24.1824)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btxh1"]
 atlas = ExtResource("1_jn2c5")
@@ -208,7 +208,7 @@ animations = [{
 size = Vector2(66.1922, 26.7168)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ebo"]
-size = Vector2(8, 10.4)
+size = Vector2(8, 9.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv8rw"]
 size = Vector2(9.6, 11.2)
@@ -224,7 +224,7 @@ SPEED = 400.0
 projectile_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.146821, 2.165)
+position = Vector2(0.14682, 1.44923)
 rotation = -3.14159
 scale = Vector2(0.33248, -0.541779)
 shape = SubResource("RectangleShape2D_vr430")
@@ -232,6 +232,7 @@ shape = SubResource("RectangleShape2D_vr430")
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="enemy" type="AnimatedSprite2D" parent="Flippable"]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_w82jc")
 animation = &"idle"
 autoplay = "idle"
@@ -243,6 +244,8 @@ one_shot = true
 
 [node name="detection_area" type="Area2D" parent="Flippable"]
 scale = Vector2(1.8, 0.6)
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/detection_area"]
 position = Vector2(7.55773, 0)
@@ -255,7 +258,7 @@ collision_mask = 2
 script = ExtResource("3_4v5d0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/hurtbox"]
-position = Vector2(5.96046e-08, -0.5)
+position = Vector2(5.96046e-08, 1.19209e-07)
 scale = Vector2(1.25, 1.25)
 shape = SubResource("RectangleShape2D_q7ebo")
 

@@ -41,7 +41,7 @@ func _physics_process(delta):
 	
 	if follow_player and alive:
 		if not immobile:
-			position += (player.position - position)/SPEED
+			position.x += (player.position.x - position.x)/SPEED
 		
 		if (player.position.x - position.x) < 0:
 			if not face_left:
@@ -59,7 +59,7 @@ func _physics_process(delta):
 		grav *= FALL_STRENGTH
 	
 	velocity.y += grav * delta
-	set_velocity(velocity)
+	#set_velocity(velocity)
 	move_and_slide()
 
 func _on_detection_area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
@@ -98,6 +98,7 @@ func attack():
 		$Flippable/hitbox/cooldown_timer.start()
 
 func shoot():
+	$Flippable/enemy.attack = true
 	get_projectile()
 	var b = projectile.instantiate()
 	b.init(Vector2(-$Flippable.scale.x, 0))

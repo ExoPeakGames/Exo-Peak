@@ -72,12 +72,12 @@ region = Rect2(72, 17, 19, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_3qnmc"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_v6plg")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -227,13 +227,13 @@ bg_color = Color(0.54902, 0.0313726, 0, 1)
 
 [node name="enemy_10" type="CharacterBody2D" groups=["enemy", "projectile_4"]]
 collision_layer = 256
-collision_mask = 256
+collision_mask = 304
 script = ExtResource("1_ev12h")
 projectile_enabled = true
 disable_damage_on_touch = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.14682, 2.165)
+position = Vector2(0.14682, 1.165)
 rotation = -3.14159
 scale = Vector2(0.33248, -0.541779)
 shape = SubResource("RectangleShape2D_mil7b")
@@ -242,7 +242,7 @@ shape = SubResource("RectangleShape2D_mil7b")
 
 [node name="enemy" type="AnimatedSprite2D" parent="Flippable" groups=["attack"]]
 sprite_frames = SubResource("SpriteFrames_3qnmc")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 script = ExtResource("3_maqgq")
 
@@ -252,6 +252,8 @@ one_shot = true
 
 [node name="detection_area" type="Area2D" parent="Flippable"]
 scale = Vector2(1.8, 0.6)
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/detection_area"]
 scale = Vector2(0.86623, 1.03696)
