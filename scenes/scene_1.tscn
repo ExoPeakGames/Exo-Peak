@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://if6ah067nd5p"]
+[gd_scene load_steps=17 format=3 uid="uid://if6ah067nd5p"]
 
 [ext_resource type="Script" path="res://scripts/game/scene_1.gd" id="1_qhoy1"]
 [ext_resource type="PackedScene" uid="uid://kmt5elxudxry" path="res://scenes/hard_bounds.tscn" id="1_yt00p"]
@@ -41,13 +41,13 @@ position = Vector2(125, 101)
 position = Vector2(312, 99)
 
 [node name="enemy_5" parent="Game" instance=ExtResource("6_f3i2l")]
-position = Vector2(383, 36)
+position = Vector2(385, 89)
 
 [node name="lava_shooter" parent="Game" instance=ExtResource("7_gsk5a")]
 position = Vector2(438, 96)
 
 [node name="enemy_10" parent="Game" instance=ExtResource("9_x080f")]
-position = Vector2(543, 83)
+position = Vector2(546, -19)
 projectile_enabled = false
 disable_damage_on_touch = false
 
