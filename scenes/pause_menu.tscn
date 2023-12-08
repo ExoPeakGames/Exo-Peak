@@ -88,7 +88,7 @@ layout_mode = 2
 theme = ExtResource("1_qljxg")
 text = "Save"
 
-[node name="resetLevel_button" type="Button" parent="Pause_Background/Primary Buttons"]
+[node name="checkpoint_button" type="Button" parent="Pause_Background/Primary Buttons"]
 custom_minimum_size = Vector2(48, 10)
 layout_mode = 2
 text = "Checkpoint"
@@ -162,7 +162,8 @@ theme = ExtResource("1_qljxg")
 theme_type_variation = &"achievement_button"
 text = "Achievements"
 
-[connection signal="pressed" from="Pause_Background/Primary Buttons/resetLevel_button" to="." method="_on_reset_level_button_pressed"]
+[connection signal="pressed" from="Pause_Background/Primary Buttons/save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Pause_Background/Primary Buttons/checkpoint_button" to="." method="_on_reset_level_button_pressed"]
 [connection signal="pressed" from="Pause_Background/Primary Buttons/settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Pause_Background/Resume/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Pause_Background/TitleScreen/returnButton" to="." method="_on_return_button_pressed"]

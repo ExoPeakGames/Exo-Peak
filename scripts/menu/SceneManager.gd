@@ -1,5 +1,4 @@
 extends Node2D
-
 # Game will always load with Title_Screen and an animation player
 # Global variables
 @onready var current_scene = $Title_Screen

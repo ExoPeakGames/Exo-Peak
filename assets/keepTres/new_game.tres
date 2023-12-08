@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="NewGame" load_steps=2 format=3 uid="uid://d4gorng404cxx"]
-
-[ext_resource type="Script" path="res://resources/new_game.gd" id="1_vngsi"]
-
-[resource]
-script = ExtResource("1_vngsi")
-health = 8
-position = Vector2(104, 100)
