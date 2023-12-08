@@ -184,7 +184,7 @@ SPEED = 200.0
 can_bite = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.248793, 2)
+position = Vector2(0.248793, 1)
 rotation = -3.14159
 scale = Vector2(0.33248, -0.541779)
 shape = SubResource("RectangleShape2D_vyjsb")
@@ -205,6 +205,7 @@ wait_time = 4.0
 one_shot = true
 
 [node name="detection_area" type="Area2D" parent="Flippable"]
+position = Vector2(0, -1)
 scale = Vector2(1.8, 0.6)
 collision_layer = 256
 collision_mask = 256
