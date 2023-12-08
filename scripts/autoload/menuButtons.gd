@@ -35,6 +35,9 @@ func _on_keybindings_button_pressed():
 func _on_keybindings_back_button_pressed():
 	emit_signal("scene_change", "settings")
 
+func _on_scene_2():
+	emit_signal("scene_change", "scene_2")
+
 # to disable ANY input (mouse) during scene transitions
 func inputHandle(handle: String):
 	match handle:

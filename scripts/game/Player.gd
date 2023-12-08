@@ -8,7 +8,7 @@ var spawner = null
 var playerSave: PlayerSave
 var newGame: NewGame
 
-@export var SPEED : float = 150
+@export var SPEED : float = 80
 @export var FALL_STRENGTH : float = 2
 @export var GRAVITY : float = 375
 @export var JUMP_SPEED : float = -150
