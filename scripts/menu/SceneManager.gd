@@ -1,5 +1,4 @@
 extends Node2D
-
 # Game will always load with Title_Screen and an animation player
 # Global variables
 @onready var current_scene = $Title_Screen
@@ -11,6 +10,7 @@ func _ready() -> void:
 	# current_scene.connect("scene_change", _handle_scene_change)
 	MenuButtons.handleSounds(current_scene)
 	MenuButtons.connect("scene_change", _handle_scene_change)
+	
 
 func _handle_scene_change(go_to_scene: String):
 	
@@ -34,6 +34,9 @@ func _handle_scene_change(go_to_scene: String):
 			#animation_name =
 		"keybindings":
 			next_scene_name = "Keybindings"
+			#animation_name =
+		"scene_2":
+			next_scene_name = "scene_2"
 			#animation_name =
 		_:
 			return

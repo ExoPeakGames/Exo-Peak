@@ -44,7 +44,12 @@ func _on_settings_button_pressed():
 	MenuButtons.pmenuButton = true
 	$"../Settings".show()
 
-
 func _on_reset_level_button_pressed():
-	PlayerData.spawnerLocation = Vector2(104, 100)
+	PlayerData.health = 8
+	PlayerData.spawnerLocation = PlayerData.lastCheckpoint
 	MenuButtons._on_play_button_pressed()
+
+func _on_save_button_pressed():
+	PlayerData.spawnerLocation = $"../Game/Player".position
+	PlayerData.health = $"../Game/Player".health
+	PlayerData.save()

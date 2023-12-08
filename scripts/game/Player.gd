@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
 var game_over = false
-var health = 8
+var health = 8:
+	set(value):
+		health = value
+		$UI/HealthBar.frame = health
+	get:
+		return health
+
 var jumping = false
 var ammo = 6
 var spawner = null 
-var playerSave: PlayerSave
-var newGame: NewGame
 
 @export var SPEED : float = 80
 @export var FALL_STRENGTH : float = 2
@@ -15,29 +19,20 @@ var newGame: NewGame
 @export_range(0, 1.0) var ACCELERATION : float = 0.5
 @export_range(0, 1.0) var FRICTION : float = 0.5
 
+@export var climbing = false
 @onready var was_on_floor = is_on_floor()
 @onready var Bullet = preload("res://scenes/projectiles/bullet.tscn")
 var paused = false
 
 func _ready():
+	position = PlayerData.spawnerLocation
+	health = PlayerData.health
 	set_notify_transform(true)
-
-func _init():
-	var gameMode
-	if PlayerData.new_game:
-		newGame = NewGame.load_or_create()
-		gameMode = newGame
-	else:
-		playerSave = PlayerSave.load_or_create()
-		gameMode = playerSave
-	if gameMode:
-		position = gameMode.position
 
 func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED and get_position_delta() != Vector2.ZERO:
 		#warning-ignore:integer_division
 		$PlayerCamera.position = Vector2(104,60)-position.posmodv(Vector2(208,120))
-	
 
 func _physics_process(delta):
 	var direction : float = 0
@@ -59,6 +54,13 @@ func _physics_process(delta):
 		set_velocity(velocity)
 		set_up_direction(Vector2.UP)
 		move_and_slide()
+			
+		if climbing:
+			velocity.y = 0
+			if Input.is_action_pressed("move_up"):
+				velocity.y = -SPEED
+			elif Input.is_action_pressed("move_down"):
+				velocity.y = SPEED
 		
 		if not was_on_floor and is_on_floor():
 			pass  # play sound effect
@@ -84,10 +86,11 @@ func _on_reload():
 
 func take_damage(amount):
 	health -= amount
-	$UI/HealthBar.frame = health
 	if (health <= 0 and not game_over):
 		# play death animation
 		# game over
+		PlayerData.spawnerLocation = PlayerData.lastCheckpoint
+		PlayerData.health = 8
 		game_over = true
 		print("game over")
 		MenuButtons._on_play_button_pressed()
